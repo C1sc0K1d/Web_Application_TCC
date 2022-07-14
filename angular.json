@@ -127,5 +127,13 @@
       }
     }
   },
-  "defaultProject": "web-application"
+  "defaultProject": "web-application",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  },
+  "cli": {
+    "packageManager": "yarn"
+  }
 }
