@@ -1,0 +1,41 @@
+.app__navbar {
+    height: 10%;
+    min-height: 10%;
+    position: relative;
+}
+
+.app__navbar-mobile {
+    height: 10%;
+    min-height: 10%;
+    position: relative;
+}
+
+.app__title {
+    font-weight: bolder;
+    font-size: 36px;
+    line-height: 28px;
+    height: auto;
+    min-height: auto;
+    width: auto;
+    min-width: auto;
+    padding: 25px;
+}
+
+.app__container {
+    height: 90%;
+    min-height: 90%;
+}
+
+@media screen and (max-width: 821px) {
+    .app__navbar {
+        display: none;
+        visibility: none;
+    }
+}
+
+@media screen and (min-width: 821px) {
+    .app__navbar-mobile {
+        display: none;
+        visibility: none;
+    }
+}

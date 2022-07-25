@@ -1,0 +1,41 @@
+.welcome__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.welcome__button {
+    width: 250px;
+    min-width: 10%;
+    height: 250px;
+    min-height: 10%;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 32px;
+    line-height: 24px;
+    font-weight: bold;
+    background-color: #181818;
+    border: 20px solid #D11717;
+}
+
+.welcome__sign {
+    height: auto;
+    min-height: 3%;
+    width: auto;
+    min-width: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-size: 28px;
+    line-height: 21px;
+    margin: 25px auto;
+    text-decoration: underline;
+}
