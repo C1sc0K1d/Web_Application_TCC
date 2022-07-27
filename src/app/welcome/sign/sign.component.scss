@@ -1,0 +1,66 @@
+* {
+    height: auto;
+    min-height: auto;
+}
+
+.sign__header {
+    padding: 15px;
+}
+
+.sign__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    height: auto;
+    flex-direction: column;
+}
+
+.sing__input_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.sing__input_container>* {
+    width: 85%;
+    min-width: auto;
+}
+
+.sing__input_container>label {
+    font-size: 14px;
+}
+
+.sing__input_container>input {
+    height: 35px;
+    border-bottom: solid 1px white;
+    padding: 2px 6px;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.sing__input_container>select {
+    height: 35px;
+    border-bottom: solid 1px white;
+    padding: 2px 6px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.sing__input_container>select::-ms-expand {
+    display: none;
+}
+
+.sign_button {
+    background-color: #D11717;
+    width: 85%;
+    min-width: auto;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 18px;
+    margin-bottom: 30px;
+}

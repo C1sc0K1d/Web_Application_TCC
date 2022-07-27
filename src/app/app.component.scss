@@ -10,6 +10,11 @@
     position: relative;
 }
 
+.app__navbar_none {
+    display: none;
+    visibility: hidden;
+}
+
 .app__title {
     font-weight: bolder;
     font-size: 36px;

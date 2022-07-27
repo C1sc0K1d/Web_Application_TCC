@@ -1,3 +1,35 @@
-<p>
-  sign works!
-</p>
+<div class="sign__container">
+    <h3 class="sign__header">Cadastre-se</h3>
+    <div class="sing__input_container">
+        <label for="name">Nome Completo</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required>
+
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="example@email.com" required>
+
+        <label for="company">Empresa</label>
+        <select id="company" name="company" required>
+      <option disabled selected value> -- select an option -- </option>
+      <option>Dabliuci</option>
+      <option>Teste</option>
+    </select>
+
+        <label for="cpf">CPF</label>
+        <input type="text" id="cpf" name="cpf" placeholder="XXX.XXX.XXX.XX" required>
+
+        <label for="number">Numero</label>
+        <input type="text" id="number" name="number" placeholder="(XX) XXXXX-XXXX" required>
+
+        <label for="password">Senha</label>
+        <input type="text" id="password" name="password" placeholder="password" required>
+
+        <label for="position">Cargo</label>
+        <select id="position" name="position" required>
+      <option disabled selected value>-- select an option --</option>
+      <option>Admin</option>
+      <option>Manager</option>
+      <option>Worker</option>
+    </select>
+    </div>
+    <button class="sign_button">Cadastrar-se</button>
+</div>
