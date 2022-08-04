@@ -1,3 +1,4 @@
-<div class="navbar-mobile__container">
-    <div>buiguinho mobile</div>
+<div [ngClass]="{'navbar-mobile__container_invisible': !showNavbar, 'navbar-mobile__container_visible': showNavbar}">
+    <img [ngClass]="{'navbar-mobile__image_invisible': !showNavbar, 'navbar-mobile__image_visible': showNavbar}" src="assets/icons/cardapio.png" alt="mobile navbar" (click)="showHideNavbar()">
+    <div [ngClass]="{'navbar-mobile__routes_invisible': !showNavbar, 'navbar-mobile__routes_visible': showNavbar}"></div>
 </div>

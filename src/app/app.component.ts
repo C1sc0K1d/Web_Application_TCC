@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './welcome/login/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-  public isWelcome = false;
+  public isWelcomePage = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
     
   ngOnInit() {
-    this.isWelcome = window.location.href.includes("welcome");    
+    this.authService.showNavbaEmitter.subscribe(show => this.isWelcomePage = show);
   }
 
   toStartPage() : void {

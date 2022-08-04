@@ -1,12 +1,12 @@
-<div [ngClass]="{'app__navbar' : !isWelcome, 'app__navbar_none' : !isWelcome}" *ngIf="!isWelcome">
-    <app-nav *ngIf="!isWelcome" [ngClass]="{'app__navbar' : !isWelcome, 'app__navbar_none' : !isWelcome}"></app-nav>
+<div [ngClass]="{'app__navbar': !isWelcomePage, 'app__navbar_none': isWelcomePage}">
+    <app-nav [ngClass]="{'app__navbar': !isWelcomePage, 'app__navbar_none': isWelcomePage}"></app-nav>
 </div>
-<div [ngClass]="{'app__navbar' : !isWelcome, 'app__navbar_none' : !isWelcome}" *ngIf="!isWelcome ">
-    <app-nav-mobile *ngIf="!isWelcome " [ngClass]="{'app__navbar' : !isWelcome, 'app__navbar_none' : !isWelcome}">
+<div [ngClass]="{'app__navbar-mobile': !isWelcomePage, 'app__navbar_none': isWelcomePage}">
+    <app-nav-mobile [ngClass]="{'app__navbar-mobile': !isWelcomePage, 'app__navbar_none': isWelcomePage}">
     </app-nav-mobile>
 </div>
 <div class="app__container ">
-    <h1 *ngIf="isWelcome " class="app__title" (click)="toStartPage()">
+    <h1 [ngClass]="{'app__title': isWelcomePage, 'app__navbar_none': !isWelcomePage}" (click)="toStartPage()">
         DABLIUCI
     </h1>
     <router-outlet></router-outlet>

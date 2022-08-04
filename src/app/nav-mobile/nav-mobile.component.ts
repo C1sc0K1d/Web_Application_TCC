@@ -9,7 +9,14 @@ export class NavMobileComponent implements OnInit {
 
   constructor() { }
 
+  showNavbar = false;
+
   ngOnInit() {
+  }
+
+  showHideNavbar(): void {
+    this.showNavbar = !this.showNavbar;
+    console.log(this.showNavbar);
   }
 
 }

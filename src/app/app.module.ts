@@ -7,20 +7,24 @@ import { CommonModule, LocationStrategy, PathLocationStrategy } from '@angular/c
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
+import { AuthService } from './welcome/login/auth.service';
+import { AuthGuard } from './guards/auth.guard';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [					
     AppComponent,
     NavComponent,
-    NavMobileComponent
+    NavMobileComponent,
+    NotFoundComponent
    ],
   imports: [
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy }],
+  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy }, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,24 @@
+* {
+    min-width: auto;
+    width: auto;
+    min-height: auto;
+    height: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+span {
+    font-size: 30px;
+    color: #4D4D4D;
+    height: auto;
+}
+
+img {
+    background-color: #4D4D4D;
+    height: auto;
+    width: 60%;
+}
