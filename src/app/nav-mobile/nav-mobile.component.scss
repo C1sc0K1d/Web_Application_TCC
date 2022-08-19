@@ -3,6 +3,7 @@
     height: auto;
     min-height: auto;
     min-width: auto;
+    z-index: 99999;
 }
 
 .navbar-mobile__container_invisible {
@@ -35,6 +36,7 @@
 
 .navbar-mobile__routes_invisible {
     background-color: transparent;
+    display: none;
     height: 0;
     width: 0%;
 }
@@ -58,5 +60,27 @@
     margin-top: 10px;
     margin-right: 5px;
     background-color: #584f4f;
+    border-radius: 5px;
+}
+
+.navbar-mobile__logo_txt {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    line-height: normal;
+    font-weight: 700;
+}
+
+.navbar-mobile__nav_buttom {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px red;
+    background-color: black;
     border-radius: 5px;
 }

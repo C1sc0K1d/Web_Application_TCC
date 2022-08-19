@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-mobile',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavMobileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   showNavbar = false;
 
@@ -17,6 +18,13 @@ export class NavMobileComponent implements OnInit {
   showHideNavbar(): void {
     this.showNavbar = !this.showNavbar;
     console.log(this.showNavbar);
+  }
+
+  goToMain(): void {
+    this.router.navigate(['/main']);
+  }
+  goToDashboard(): void {
+    this.router.navigate(['/dashboard']);
   }
 
 }

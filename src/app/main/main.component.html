@@ -3,36 +3,36 @@
     <h3 class="main__header">Locais</h3>
     <div class="main__card_container">
         <div class="main__card_body">
-            <span>local</span>
+            <span>Pronto Socorro</span>
             <div class="main__grafic_container">
-                <div class="main__pie_chart" [style.--p]="percentage" [style.--c]="color" style="--b:9px"> {{percentage}}%</div>
+                <div class="main__pie" style="background-color: yellow;"></div>
             </div>
         </div>
-        <div class="main__card_footer">
+        <div class="main__card_footer" (click)="goToLocal(1)">
             <span style="font-size: 12px;">saiba mais</span>
             <span>></span>
         </div>
     </div>
     <div class="main__card_container">
         <div class="main__card_body">
-            <span>local</span>
+            <span>UTI Adulto</span>
             <div class="main__grafic_container">
-                <div class="main__pie_chart" style="--p:80;--c:green;--b:9px"> 80%</div>
+                <div class="main__pie"></div>
             </div>
         </div>
-        <div class="main__card_footer">
+        <div class="main__card_footer" (click)="goToLocal(2)">
             <span style="font-size: 12px;">saiba mais</span>
             <span>></span>
         </div>
     </div>
     <div class="main__card_container">
         <div class="main__card_body">
-            <span>local</span>
+            <span>Pediatria</span>
             <div class="main__grafic_container">
-                <div class="main__pie_chart" style="--p:50;--c:yellow;--b:9px"> 50%</div>
+                <div class="main__pie" style="background-color: green;"></div>
             </div>
         </div>
-        <div class="main__card_footer">
+        <div class="main__card_footer" (click)="goToLocal(3)">
             <span style="font-size: 12px;">saiba mais</span>
             <span>></span>
         </div>

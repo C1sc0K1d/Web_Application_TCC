@@ -1,43 +1,101 @@
-.welcome__container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-}
-
-.welcome__button {
-    width: 250px;
-    min-width: 10%;
-    height: 250px;
-    min-height: 10%;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    font-size: 32px;
-    line-height: 24px;
-    font-weight: bold;
-    background-color: #181818;
-    border: 20px solid #D11717;
-}
-
-.welcome__sign {
-    height: auto;
-    min-height: 3%;
-    width: auto;
-    min-width: 1%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    font-size: 16px;
-    line-height: 12px;
-    text-decoration: underline;
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-}
+  * {
+      min-height: auto;
+      min-width: auto;
+  }
+  
+  .welcome__container {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      height: 100%;
+  }
+  
+  .welcome__login_sign {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-start;
+      align-content: flex-start;
+      background: url('../../assets/images/long-hospital-corridor.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      height: 30%;
+  }
+  
+  @media screen and (min-width: 750px) {
+      .welcome__login_sign {
+          height: 40%;
+      }
+  }
+  
+  @media screen and (min-width: 1000px) {
+      .welcome__login_sign {
+          height: 50%;
+      }
+  }
+  
+  .welcome__button {
+      width: auto;
+      min-width: auto;
+      height: auto;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      font-size: 16px;
+      line-height: 12px;
+      font-weight: bold;
+      background-color: transparent;
+      height: auto;
+      color: black;
+      padding: 10px 10px 10px 0;
+  }
+  
+  .welcome__sign {
+      height: auto;
+      min-height: 3%;
+      width: auto;
+      min-width: 1%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      align-content: center;
+      text-align: center;
+      font-size: 12px;
+      line-height: 12px;
+      background-color: transparent;
+      padding: 15px;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      font-weight: 800;
+  }
+  
+  .welcome__login_img {
+      width: 30px;
+      height: auto;
+      background-color: transparent;
+      padding: 7px 3px 10px 10px;
+  }
+  
+  .welcome__resume_text_container {
+      height: 60%;
+      overflow: scroll;
+  }
+  
+  @media screen and (min-width: 1000px) {
+      .welcome__resume_text_container {
+          height: 50%;
+      }
+  }
+  
+  .welcome__resume_text {
+      height: 100%;
+  }
+  
+  .welcome__dispenser_img {
+      height: auto;
+      width: auto;
+  }

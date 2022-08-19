@@ -1,4 +1,30 @@
 <div class="welcome__container">
-    <button class="welcome__button" (click)="gotoLogin()"> Login </button>
-    <span class="welcome__sign"><a (click)="gotoSing()"> Primeiro acesso? </a></span>
+    <div class="welcome__login_sign">
+        <img (click)="gotoLogin()" src="assets/icons/enter.png" alt="login" class="welcome__login_img">
+        <button class="welcome__button" (click)="gotoLogin()"> Login </button>
+    </div>
+    <div class="welcome__resume_text_container"><span class="welcome__resume_text">Boa Noite!<br>
+      Somos a Startup Dabliuci, composta por uma equipe de 5 futuros engenheiros e com grande entusiasmo em resolver
+      problemas.<br>
+      “Monitoramento”, uma palavra cuja definição é: acompanhamento de um processo para consideração.<br>
+      Alguém já percebeu o quanto a falta de monitoramento pode trazer problemas?<br>
+      Quem nunca foi a um banheiro público e na hora de lavar as mãos não tinha sabão para lavá-las?<br>
+      E se eu te trouxer essa mesma aplicação, em um cenário com números mais expressivos!
+      Por exemplo, um hospital que gasta milhares de reais na compra de produtos de higienização, o álcool em gel e
+      sabonete por exemplo, onde estão realizando um mau armazenamento desses produtos, causando desperdício. Quanto
+      essa empresa vai gastar até achar o problema?<br>
+      Exemplos que podem ser resolvidos com monitoramento!<br>
+      O que nós queremos trazer aqui é que o pode ser monitorado, pode ser melhorado.<br>
+      E quando o assunto é monitoramento de fluidos, nós somos a escolha certa!<br>
+      <img src="assets/images/dispenser_foto.png" alt="Dispenser imagem" class="welcome__dispenser_img">
+      Nossa solução é uma aplicação para o monitoramento de fluidos em dispensers, que utiliza dispositivos IOT,
+      integrados a um sistema, que dispõe de uma pagina na web e um aplicativo, extraindo e realizando o tratamento de
+      dados, trazendo informações relevantes para o cliente.<br>
+      Analisando informações como, nível do fluído e especificações do abastecimento, que incluem: data, hora, prazos de
+      validade, frequência de uso, locais onde estão sendo mais utilizados entre outras infinitas possibilidades de
+      dados.<br>
+      Mas isso é somente um exemplo de benefício que o monitoramento pode trazer.<br>
+      Nossa startup veio para inovar e mostrar que até nas coisas “simples”, podemos melhorar ainda mais.
+    </span></div>
+    <span class="welcome__sign" (click)="gotoSing()"> Primeiro Acesso</span>
 </div>

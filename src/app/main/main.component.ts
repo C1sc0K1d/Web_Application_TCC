@@ -1,4 +1,5 @@
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../welcome/login/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '../welcome/login/auth.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   percentage = 25;
   color = 'red'
@@ -18,8 +19,12 @@ export class MainComponent implements OnInit {
     this.authService.hideBar(true);
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.authService.hideBar(false);
+  }
+
+  goToLocal(id: number): void {
+    this.router.navigate(['/main/local/' + id]);
   }
 
 }

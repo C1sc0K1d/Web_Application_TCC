@@ -15,16 +15,12 @@ export class AuthService {
   logIn(token: string) : void {
 
     if(token === '3c8923ndc013mevt3tcd324'){
-      console.log('entro');
-    
 
       this.userAuthorized = true
       this.showNavbaEmitter.emit(false);
 
       this.router.navigate(['/main']);
     } else {
-      
-      console.log('entro');
       this.userAuthorized = false
       this.showNavbaEmitter.emit(true);
     }
