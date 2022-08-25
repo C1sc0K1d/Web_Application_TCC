@@ -10,13 +10,17 @@
     min-height: 10%;
     position: fixed;
     display: flex;
+    align-items: center;
     flex-direction: row;
     top: 0;
 }
 
+.navbar__container:hover {
+    opacity: 1;
+}
+
 .navbar__logo {
     width: auto;
-    height: 100%;
     min-width: auto;
     padding: 10px;
 }
@@ -25,9 +29,26 @@
     width: 160px;
     min-width: auto;
     height: 100%;
-    background-color: black;
+    background-color: #D11717;
     border: 1px solid #D11717;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.pageOn>span {
+    border-bottom: 2px solid white;
+    padding: 4px;
+    width: auto;
+    min-width: auto;
+}
+
+.navbar__navigation>span {
+    padding: 4px;
+    width: auto;
+    min-width: auto;
+}
+
+.navbar__navigation:hover>span {
+    border-bottom: 2px solid white;
 }

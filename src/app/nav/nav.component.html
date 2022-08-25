@@ -1,5 +1,9 @@
 <div class="navbar__container">
-    <img src="assets/icons/letter-d.png" alt="Dabliuci logo" class="navbar__logo">
-    <div (click)="goToMain()" class="navbar__navigation">Main</div>
-    <div (click)="goToDashboard()" class="navbar__navigation">Dashboard</div>
+    <h2 class="navbar__logo" (click)="goToMain()">Dabliuci</h2>
+    <div id="main" [ngClass]="{'pageOn': page == 'main'}" (click)="goToMain()" class="navbar__navigation">
+        <span>Home</span>
+    </div>
+    <div id="dashboard" [ngClass]="{'pageOn': page == 'dashboard'}" (click)="goToDashboard()" class="navbar__navigation">
+        <span>Dashboard</span>
+    </div>
 </div>

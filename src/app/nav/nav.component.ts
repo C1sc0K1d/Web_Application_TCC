@@ -9,15 +9,30 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
 
   constructor(private router: Router) { }
+  
+  pages = ['main', 'dashboard'];
+  page: string;
 
-  ngOnInit() {
+  ngOnInit() : void {
+    this.checkPage();
+    console.log(this.page);
   }
 
   goToMain(): void {
+    this.page = 'main'
     this.router.navigate(['/main']);
   }
   goToDashboard(): void {
+    this.page = 'dashboard'
     this.router.navigate(['/dashboard']);
+  }
+
+  checkPage() : void {
+    this.pages.some(element => {
+      if (window.location.href.includes(element)) {
+        this.page = element;
+      }
+    });
   }
 
 }
