@@ -3,43 +3,31 @@
         <h3 class="local__logo">Dispenser</h3>
     </div>
     <div class="local__card_container_div">
-        <div class="local__card_container">
+        <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container">
             <div class="local__card_body">
                 <span>Corredor leste</span>
                 <div class="local__grafic_container">
-                    <div class="local__pie_chart" [style.--p]="percentage" [style.--c]="color" style="--b:9px"> {{percentage}}%
-                    </div>
-                </div>
-            </div>
-            <div (click)="showDetails()" class="local__card_footer">
-                <span style="font-size: 12px;">ultima carga 23/07/2022</span>
-                <span>+</span>
-            </div>
-        </div>
-        <div class="local__card_container">
-            <div class="local__card_body">
-                <span>Corredor sul</span>
-                <div class="local__grafic_container">
-                    <div class="local__pie_chart" [style.--p]="'40'" [style.--c]="'yellow'" style="--b:9px"> 40%
+                    <div class="local__pie_chart" [style.--p]="dispenser.percentage" [style.--c]="dispenser.color" style="--b:9px"> {{dispenser.percentage}}%
                     </div>
                 </div>
             </div>
             <div class="local__card_footer">
-                <span style="font-size: 12px;">Mais informações</span>
-                <span>+</span>
-            </div>
-        </div>
-        <div class="local__card_container">
-            <div class="local__card_body">
-                <span>Entrada Sala</span>
-                <div class="local__grafic_container">
-                    <div class="local__pie_chart" [style.--p]="'43'" [style.--c]="'yellow'" style="--b:9px"> 43%
-                    </div>
+                <div (click)="showDetails(i)" class="local__card_footer_head">
+                    <span style="font-size: 12px;">Mais informações</span>
+                    <span [ngClass]="{'local__card_footer_signal_invisible': dispenser.signal}">+</span>
+                    <span [ngClass]="{'local__card_footer_signal_invisible': !dispenser.signal}">-</span>
                 </div>
-            </div>
-            <div class="local__card_footer">
-                <span style="font-size: 12px;">saiba mais</span>
-                <span>+</span>
+                <div [ngClass]="{'local__card_footer_signal_invisible': !dispenser.signal}" class="local__card_footer_foot_open">
+                    <br>
+                    <span><b>Instalação</b><br>13/08/2022</span>
+                    <br>
+                    <span><b>Uso total</b><br>213</span>
+                    <br>
+                    <span><b>Ultimo abastecimento</b><br>21/08/2022 - 21:31</span>
+                    <br>
+                    <span><b>Uso após abastecimento</b><br>53</span>
+                    <br>
+                </div>
             </div>
         </div>
     </div>

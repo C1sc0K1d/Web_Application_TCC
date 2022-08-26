@@ -12,6 +12,23 @@ export class LocalComponent implements OnInit {
   percentage = 35;
   color = 'red';
   modalVisible = false;
+  dispensers: any[] = [
+    {
+      percentage: 65,
+      color: 'green',
+      signal: false
+    },
+    {
+      percentage: 42,
+      color: 'yellow',
+      signal: false
+    },
+    {
+      percentage: 13,
+      color: 'red',
+      signal: false
+    }
+  ]
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -27,9 +44,8 @@ export class LocalComponent implements OnInit {
     this.router.navigate(['/main']);
   }
 
-  async showDetails() {
-    await this.delay(50)
-    this.modalVisible = !this.modalVisible;
+  showDetails(index: number): void {
+    this.dispensers[index].signal = !this.dispensers[index].signal;
   }
 
   modalToInvisible() {
