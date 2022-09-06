@@ -1,0 +1,306 @@
+* {
+    min-height: auto;
+    min-width: auto;
+    width: auto;
+    height: auto;
+}
+
+.dashboard__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+.dashboard__title {
+    width: 95%;
+    margin: 15px;
+}
+
+.dashboard__graphs_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dashboard__first_graphs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+}
+
+.dashboard__first_graph {
+    display: flex;
+    flex-direction: column;
+    background-color: #D11717;
+    width: 45%;
+    margin: 8px;
+    padding: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard__first_graph>span {
+    background-color: #D11717;
+    max-width: 99%;
+    margin: 5px;
+}
+
+.dashboard__pie_container {
+    background-color: #D11717;
+    width: 25%;
+    aspect-ratio: 1;
+}
+
+.dashboard__pie {
+    --r: 40%;
+    width: 100%;
+    aspect-ratio: 1;
+    background-image: conic-gradient(red var(--r), black 2%, black);
+    background-color: #D11717;
+    border-radius: 50%
+}
+
+.dashboard__sidegraph_container {
+    background: black;
+    width: 100%;
+    margin: auto;
+}
+
+$color-grph_one: #f22;
+$color-grph_two: #56a;
+$color-grph_tree: #2a5;
+$color-label: #FFF;
+$color-background: black;
+.dashboard__sidegraph_chart {
+    position: relative;
+    padding: 1em;
+    background: $color-background;
+    border-radius: 5px;
+    font-size: 16px;
+    * {
+        box-sizing: border-box;
+    }
+    // the line
+    &:after {
+        content: '';
+        position: absolute;
+        left: 25%;
+        top: 7.5%;
+        transform: translateX(100%);
+        width: 4px;
+        background: #FFF;
+        height: 86%;
+        border-radius: 2px;
+    }
+    .dashboard__sidegraph_part {
+        display: flex;
+        height: 3em;
+        >.dashboard__sidegraph_label {
+            flex: 1;
+            flex-basis: 25%;
+            text-align: right;
+            padding-right: 1em;
+            margin: 0.5em 0;
+            height: 2em;
+            line-height: 2em;
+            color: $color-label;
+            font-weight: 600;
+        }
+        .dashboard__sidegraph_bar {
+            flex: 3;
+            flex-basis: 75%;
+            position: relative;
+            margin: 0.5em 0;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                border-radius: 0 2px 2px 0;
+                animation: grow 0.5s;
+            }
+            // the colors!
+            &.bar_one:after {
+                background: $color-grph_one;
+            }
+            &.bar_two:after {
+                background: $color-grph_two;
+            }
+            &.bar_tree:after {
+                background: $color-grph_tree;
+            }
+            .dashboard__sidegraph_label {
+                position: absolute;
+                top: 50%;
+                left: 0.5em;
+                transform: translateX(0%) translateY(-50%);
+                z-index: 1;
+                color: #FFF;
+                font-weight: 600;
+                background-color: transparent;
+            }
+        }
+        @for $i from 1 through 100 {
+            &.percent-#{$i} .dashboard__sidegraph_bar:after {
+                width: $i * 1%;
+            }
+        }
+    }
+}
+
+@keyframes grow {
+    from {
+        width: 0;
+    }
+}
+
+.titular {
+    display: block;
+    line-height: 60px;
+    margin: 0;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+//User Defined
+$dataNum:12;
+$name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
+$data:50% 40% 70% 22% 35% 40% 85% 36% 88% 62% 13% 98%;
+//General Settings
+$width:100%;
+$height: 200px;
+$color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #dab9b9 #fdc5c5 #530b53;
+.dashboard__frame_bar {
+    width: $width;
+    height: $height;
+    position: relative;
+    background: black;
+}
+
+.dashboard__frame_bar:before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    position: absolute;
+    top: 50%;
+}
+
+.dashboard__frame_bar:after {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background: transparent;
+    position: absolute;
+    top: 25%;
+    border-top: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.dashboard__bar_data {
+    width: 20px;
+    position: absolute;
+    bottom: 1px;
+    margin: 0px 0px 0px 0px;
+    z-index: 99;
+    float: left;
+}
+
+@for $i from 1 through $dataNum {
+    .dashboard__bar_data#{$i} {
+        background: nth($color, $i);
+        height: 0px;
+        left: $width/($dataNum + 1) * $i - 3;
+        -webkit-animation: showBar#{$i} 1.2s $i*.1s forwards;
+        -moz-animation: showBar#{$i} 1.2s $i*.1s forwards;
+        animation: showBar#{$i} 1.2s $i*.1s forwards;
+    }
+}
+
+.dashboard__bar_data:before {
+    position: absolute;
+    top: -16px;
+    font-size: 12px;
+    color: white;
+    font-family: "roboto";
+    font-weight: 300;
+}
+
+@for $i from 1 through $dataNum {
+    .dashboard__bar_data#{$i}:before {
+        content: nth($data, $i)+"";
+    }
+}
+
+.dashboard__bar_data:after {
+    position: absolute;
+    bottom: -27px;
+    transform: rotate(30deg);
+    color: #666;
+    font-size: 14px;
+    text-align: left;
+    font-family: "roboto";
+    font-weight: 300;
+    width: auto;
+}
+
+@for $i from 1 through $dataNum {
+    .dashboard__bar_data#{$i}:after {
+        content: nth($name, $i)+"";
+    }
+}
+
+@for $i from 1 through $dataNum {
+    @-webkit-keyframes showBar#{$i} {
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: nth($data, $i);
+        }
+    }
+}
+
+@for $i from 1 through $dataNum {
+    @-moz-keyframes showBar#{$i} {
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: nth($data, $i);
+        }
+    }
+}
+
+@for $i from 1 through $dataNum {
+    @keyframes showBar#{$i} {
+        0% {
+            height: 0px;
+        }
+        100% {
+            height: nth($data, $i);
+        }
+    }
+}
+
+@media screen and (min-width: 820px) {
+    .dashboard__first_graph {
+        width: 22%;
+    }
+    .dashboard__first_graphs {
+        width: 100%;
+    }
+    .dashboard__first_graph>span {
+        max-width: 100%;
+        margin: 3px;
+    }
+}

@@ -44,7 +44,6 @@ span {
     background-color: #181818;
     border-radius: 15px;
     margin: 15px auto;
-    height: 130px;
     padding: 10px;
 }
 
@@ -116,7 +115,7 @@ span {
     --p: 20;
     --b: 22px;
     --c: darkred;
-    --w: 70px;
+    --w: 75px;
     width: var(--w);
     aspect-ratio: 1;
     position: relative;
@@ -130,8 +129,7 @@ span {
     z-index: 1;
 }
 
-.local__pie_chart:before,
-.local__pie_chart:after {
+.local__pie_chart:before {
     content: "";
     position: absolute;
     border-radius: 50%;
@@ -221,7 +219,7 @@ span {
         justify-content: unset;
     }
     .local__pie_chart {
-        --w: 85px;
+        --w: 100%;
     }
     .local__grafic_container {
         display: flex;
