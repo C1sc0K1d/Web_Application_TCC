@@ -22,6 +22,16 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.dashboard__graphs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 30px auto;
 }
 
 .dashboard__first_graphs {
@@ -52,24 +62,24 @@
 }
 
 .dashboard__pie_container {
-    background-color: #D11717;
+    background-color: black;
     width: 25%;
     aspect-ratio: 1;
 }
 
 .dashboard__pie {
     --r: 40%;
-    width: 100%;
+    width: 80%;
     aspect-ratio: 1;
-    background-image: conic-gradient(red var(--r), black 2%, black);
-    background-color: #D11717;
-    border-radius: 50%
+    background-image: conic-gradient(red var(--r), blue 2%, blue);
+    background-color: black;
+    border-radius: 50%;
+    margin: 20px auto;
 }
 
 .dashboard__sidegraph_container {
     background: black;
-    width: 100%;
-    margin: auto;
+    width: 50%;
 }
 
 $color-grph_one: #f22;
@@ -175,6 +185,7 @@ $color-background: black;
 $dataNum:12;
 $name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
 $data:50% 40% 70% 22% 35% 40% 85% 36% 88% 62% 13% 98%;
+$usado: 96 12 13 54 654 123 5432 1234 43 1234 32 43;
 //General Settings
 $width:100%;
 $height: 200px;
@@ -211,7 +222,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     position: absolute;
     bottom: 1px;
     margin: 0px 0px 0px 0px;
-    z-index: 99;
+    z-index: 9;
     float: left;
 }
 
@@ -237,7 +248,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
 
 @for $i from 1 through $dataNum {
     .dashboard__bar_data#{$i}:before {
-        content: nth($data, $i)+"";
+        content: nth($usado, $i)+"";
     }
 }
 
@@ -245,7 +256,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     position: absolute;
     bottom: -27px;
     transform: rotate(30deg);
-    color: #666;
+    color: white;
     font-size: 14px;
     text-align: left;
     font-family: "roboto";
