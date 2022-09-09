@@ -1,5 +1,5 @@
 * {
-    background-color: #D11717;
+    background-color: #13141a;
     height: auto;
     min-height: auto;
     min-width: auto;
@@ -20,13 +20,13 @@
 }
 
 .navbar-mobile__container_visible {
-    background-color: transparent;
+    background-color: rgba($color: #000000, $alpha: 0.5);
     height: 100%;
     min-height: auto;
     position: fixed;
     top: 0;
     right: 0;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
@@ -42,11 +42,14 @@
 }
 
 .navbar-mobile__routes_visible {
-    background-color: #D11717;
-    height: 100%;
-    width: 87%;
+    background-color: #13141a;
+    height: 60%;
+    width: 100%;
     border-radius: 5px;
     transition: width 0.1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .navbar-mobile__image_invisible {
@@ -56,7 +59,8 @@
 }
 
 .navbar-mobile__image_visible {
-    width: 13%;
+    width: 0%;
+    display: none;
     margin-top: 10px;
     margin-right: 5px;
     background-color: #584f4f;
@@ -65,9 +69,9 @@
 
 .navbar-mobile__logo_txt {
     height: 60px;
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 24px;
     line-height: normal;
@@ -75,12 +79,28 @@
 }
 
 .navbar-mobile__nav_buttom {
-    height: 60px;
-    width: 100%;
+    height: 40px;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    border: solid 1px #D11717;
-    background-color: black;
+    border: solid 1px #242731;
+    background-color: #242731;
     border-radius: 5px;
+    margin: 10px auto;
+    padding: 0 10px;
+    >span {
+        background-color: #242731;
+        margin-left: 10px;
+    }
+}
+
+.navbar__local_img {
+    width: 16px;
+    background-color: #242731;
+}
+
+.navbar__cifra_img {
+    width: 16px;
+    background-color: #242731;
 }

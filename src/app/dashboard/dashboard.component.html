@@ -5,29 +5,57 @@
     <div class="dashboard__graphs_container">
         <div class="dashboard__first_graphs">
             <div class="dashboard__first_graph">
-                <span>13</span>
                 <span style="font-size: 12px;">Dispensers totais</span>
+                <span>13</span>
             </div>
             <div class="dashboard__first_graph">
-                <span>0</span>
                 <span style="font-size: 12px;">Dispensers sem carga</span>
+                <span>0</span>
             </div>
             <div class="dashboard__first_graph">
-                <span>32</span>
                 <span style="font-size: 12px;">Numero total de reabastecimentos</span>
+                <span>32</span>
             </div>
             <div class="dashboard__first_graph">
-                <span>2</span>
                 <span style="font-size: 12px;">Dispensers com nivel de fluido crítico</span>
+                <span>2</span>
             </div>
         </div>
         <div class="dashboard__graphs">
             <div class="dashboard__pie_container">
-                <h3 style="color: white;">Grafico 1</h3>
-                <div class="dashboard__pie"></div>
+                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
+                <div class="dashboard__grafic_container">
+                    <div class="dashboard__pie_chart" [style.--p]="'44'" [style.--c]="'red'" style="--b:15px">
+                        44%
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard__pie_container">
+                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
+                <div class="dashboard__grafic_container">
+                    <div class="dashboard__pie_chart" [style.--p]="'82'" [style.--c]="'red'" style="--b:15px">
+                        82%
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard__pie_container">
+                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
+                <div class="dashboard__grafic_container">
+                    <div class="dashboard__pie_chart" [style.--p]="'13'" [style.--c]="'red'" style="--b:15px">
+                        13%
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard__pie_container">
+                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
+                <div class="dashboard__grafic_container">
+                    <div class="dashboard__pie_chart" [style.--p]="'95'" [style.--c]="'red'" style="--b:15px">
+                        95%
+                    </div>
+                </div>
             </div>
             <div class="dashboard__sidegraph_container">
-                <h3 style="color: white;">Grafico 2</h3>
+                <h3 style="color: white; background: #242731; margin: 20px auto; ">Grafico 2</h3>
                 <div class="dashboard__sidegraph_chart">
                     <div class="dashboard__sidegraph_part percent-{{ percent_one }}">
                         <div class="dashboard__sidegraph_label">yes</div>
@@ -49,8 +77,8 @@
                     </div>
                 </div>
             </div>
-            <div style="width: 90%; margin: 40px auto; ">
-                <h3 style="color: white;">Grafico 3</h3>
+            <div class="dashboard__frame_bar_container">
+                <h3 style="color: white; background: #242731; margin: 20px auto;">Grafico 3</h3>
                 <div class="dashboard__frame_bar">
                     <div class="dashboard__bar_data dashboard__bar_data1"></div>
                     <div class="dashboard__bar_data dashboard__bar_data2"></div>

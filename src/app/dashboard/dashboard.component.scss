@@ -13,8 +13,8 @@
 }
 
 .dashboard__title {
-    width: 95%;
-    margin: 15px;
+    width: 90%;
+    margin: 15px auto;
 }
 
 .dashboard__graphs_container {
@@ -46,8 +46,8 @@
 .dashboard__first_graph {
     display: flex;
     flex-direction: column;
-    background-color: #D11717;
-    width: 45%;
+    background-color: #2884FF;
+    width: 95%;
     margin: 8px;
     padding: 5px;
     border-radius: 10px;
@@ -56,43 +56,111 @@
 }
 
 .dashboard__first_graph>span {
-    background-color: #D11717;
+    background-color: #2884FF;
     max-width: 99%;
     margin: 5px;
 }
 
 .dashboard__pie_container {
-    background-color: black;
-    width: 25%;
-    aspect-ratio: 1;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #242731;
+    border-radius: 15px;
+    margin: 10px auto;
 }
 
-.dashboard__pie {
-    --r: 40%;
-    width: 80%;
+.dashboard__grafic_container {
+    background-color: #242731;
+    margin: 10px auto 20px auto;
+}
+
+--p {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+.dashboard__pie_chart {
+    --p: 20;
+    --b: 22px;
+    --c: darkred;
+    --w: 150px;
+    width: var(--w);
     aspect-ratio: 1;
-    background-image: conic-gradient(red var(--r), blue 2%, blue);
-    background-color: black;
+    position: relative;
+    display: inline-grid;
+    margin: 5px;
+    place-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: sans-serif;
+    background-color: #242731;
+    z-index: 1;
+}
+
+.dashboard__pie_chart:before {
+    content: "";
+    position: absolute;
     border-radius: 50%;
-    margin: 20px auto;
+}
+
+.dashboard__pie_chart:before {
+    inset: 0;
+    background: radial-gradient(farthest-side, var(--c) 98%, #0000) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p)*1%), #0000 0);
+    -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+    mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.dashboard__pie_chart:after {
+    inset: calc(50% - var(--b)/2);
+    background: var(--c);
+    transform: rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+}
+
+.animate {
+    animation: p 1s .5s both;
+}
+
+.no-round:before {
+    background-size: 0 0, auto;
+}
+
+.no-round:after {
+    content: none;
+}
+
+@keyframes p {
+    from {
+        --p: 0
+    }
 }
 
 .dashboard__sidegraph_container {
-    background: black;
-    width: 50%;
+    background: #242731;
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
 }
 
 $color-grph_one: #f22;
 $color-grph_two: #56a;
 $color-grph_tree: #2a5;
 $color-label: #FFF;
-$color-background: black;
+$color-background: #242731;
 .dashboard__sidegraph_chart {
     position: relative;
     padding: 1em;
     background: $color-background;
     border-radius: 5px;
     font-size: 16px;
+    background-color: #242731;
+    margin: 0 0 20px 0;
     * {
         box-sizing: border-box;
     }
@@ -107,10 +175,12 @@ $color-background: black;
         background: #FFF;
         height: 86%;
         border-radius: 2px;
+        background-color: white;
     }
     .dashboard__sidegraph_part {
         display: flex;
         height: 3em;
+        background-color: #242731;
         >.dashboard__sidegraph_label {
             flex: 1;
             flex-basis: 25%;
@@ -121,12 +191,14 @@ $color-background: black;
             line-height: 2em;
             color: $color-label;
             font-weight: 600;
+            background-color: #242731;
         }
         .dashboard__sidegraph_bar {
             flex: 3;
             flex-basis: 75%;
             position: relative;
             margin: 0.5em 0;
+            background-color: #242731;
             &:after {
                 content: '';
                 position: absolute;
@@ -135,6 +207,7 @@ $color-background: black;
                 height: 100%;
                 border-radius: 0 2px 2px 0;
                 animation: grow 0.5s;
+                background-color: #242731;
             }
             // the colors!
             &.bar_one:after {
@@ -180,6 +253,15 @@ $color-background: black;
     border-top-right-radius: 5px;
 }
 
+.dashboard__frame_bar_container {
+    width: 90%;
+    margin: 10px auto;
+    background: #242731;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
 //User Defined
 $dataNum:12;
@@ -194,7 +276,8 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     width: $width;
     height: $height;
     position: relative;
-    background: black;
+    background: #242731;
+    margin: 0 auto 40px auto;
 }
 
 .dashboard__frame_bar:before {
@@ -306,12 +389,31 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
 @media screen and (min-width: 820px) {
     .dashboard__first_graph {
         width: 22%;
+        height: 100%;
+        min-height: 100%;
     }
     .dashboard__first_graphs {
-        width: 100%;
+        width: 95%;
+        height: 100px;
+        min-height: 15%;
     }
     .dashboard__first_graph>span {
         max-width: 100%;
         margin: 3px;
+    }
+}
+
+@media screen and (min-width: 912px) {
+    .dashboard__graphs {
+        width: 90%;
+    }
+    .dashboard__pie_container {
+        width: 23%;
+    }
+    .dashboard__sidegraph_container {
+        width: 48%;
+    }
+    .dashboard__frame_bar_container {
+        width: 48%;
     }
 }

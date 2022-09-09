@@ -1,12 +1,12 @@
 * {
-    background-color: #D11717;
+    background-color: #242731;
     height: auto;
     min-height: auto;
     z-index: 999;
 }
 
 .navbar__container {
-    background-color: #D11717;
+    background-color: #242731;
     height: 10%;
     min-height: 10%;
     position: fixed;
@@ -20,6 +20,14 @@
     opacity: 1;
 }
 
+.navbar__babliuci_logo {
+    width: 20px;
+    height: auto;
+    min-height: auto;
+    min-width: auto;
+    margin: auto 0 auto 20px;
+}
+
 .navbar__logo {
     width: auto;
     min-width: auto;
@@ -30,8 +38,8 @@
     width: 160px;
     min-width: auto;
     height: 100%;
-    background-color: #D11717;
-    border: 1px solid #D11717;
+    background-color: #242731;
+    border: 1px solid #242731;
     display: flex;
     justify-content: center;
     align-items: center;

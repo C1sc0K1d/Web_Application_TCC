@@ -1,7 +1,8 @@
 <div class="navbar__container">
-    <h2 class="navbar__logo" (click)="goToMain()">Dabliuci</h2>
+    <img class="navbar__babliuci_logo" src="assets/icons/logo.svg" alt="Dabliuci logo">
+    <h4 class="navbar__logo" (click)="goToMain()">Dabliuci</h4>
     <div id="main" [ngClass]="{'pageOn': page == 'main'}" (click)="goToMain()" class="navbar__navigation">
-        <span>Home</span>
+        <span>Locais</span>
     </div>
     <div id="dashboard" [ngClass]="{'pageOn': page == 'dashboard'}" (click)="goToDashboard()" class="navbar__navigation">
         <span>Dashboard</span>

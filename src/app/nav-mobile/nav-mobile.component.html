@@ -1,8 +1,9 @@
 <div [ngClass]="{'navbar-mobile__container_invisible': !showNavbar, 'navbar-mobile__container_visible': showNavbar}">
     <img [ngClass]="{'navbar-mobile__image_invisible': !showNavbar, 'navbar-mobile__image_visible': showNavbar}" src="assets/icons/cardapio.png" alt="mobile navbar" (click)="showHideNavbar()">
     <div [ngClass]="{'navbar-mobile__routes_invisible': !showNavbar, 'navbar-mobile__routes_visible': showNavbar}">
-        <div class="navbar-mobile__logo_txt">Dabliuci</div>
-        <div (click)="goToMain()" class="navbar-mobile__nav_buttom">Main</div>
-        <div (click)="goToDashboard()" class="navbar-mobile__nav_buttom">Dashboard</div>
+        <div class="navbar-mobile__logo_txt"> <span>Dabliuci</span> <span (click)="showHideNavbar()" style="width: auto;"> X
+      </span></div>
+        <div (click)="goToMain()" class="navbar-mobile__nav_buttom"> <img class="navbar__local_img" src="assets/icons/local.svg" alt="Dabliuci logo"> <span>Locais</span></div>
+        <div (click)="goToDashboard()" class="navbar-mobile__nav_buttom"> <img class="navbar__cifra_img" src="assets/icons/cifra.svg" alt="Dabliuci logo"> <span>Dashboard</span></div>
     </div>
 </div>
