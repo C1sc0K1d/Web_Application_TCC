@@ -12,7 +12,12 @@ export class NavMobileComponent implements OnInit {
 
   showNavbar = false;
 
-  ngOnInit() : void {}
+  pages = ['main', 'dashboard'];
+  page: string;
+
+  ngOnInit() : void {
+    this.checkPage();
+  }
 
   showHideNavbar(): void {
     this.showNavbar = !this.showNavbar;
@@ -22,10 +27,20 @@ export class NavMobileComponent implements OnInit {
   goToMain(): void {
     this.router.navigate(['/main']);
     this.showNavbar = !this.showNavbar;
+    this.page = 'main'
   }
   goToDashboard(): void {
     this.router.navigate(['/dashboard']);
     this.showNavbar = !this.showNavbar;
+    this.page = 'dashboard'
+  }
+
+  checkPage() : void {
+    this.pages.some(element => {
+      if (window.location.href.includes(element)) {
+        this.page = element;
+      }
+    });
   }
 
 }

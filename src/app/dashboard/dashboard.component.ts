@@ -8,9 +8,9 @@ import { AuthService } from '../welcome/login/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  percent_one = 75;
-  percent_two = 25;
-  percent_tree = 38;
+  percent_one = 53;
+  percent_two = 22;
+  percent_tree = 25;
 
   constructor(private authService: AuthService) { }
 

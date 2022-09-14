@@ -15,17 +15,17 @@ export class LocalComponent implements OnInit {
   dispensers: any[] = [
     {
       percentage: 65,
-      color: 'green',
+      color: 'darkgreen',
       signal: false
     },
     {
       percentage: 42,
-      color: 'yellow',
+      color: '#a1a111',
       signal: false
     },
     {
       percentage: 13,
-      color: 'red',
+      color: 'darkred',
       signal: false
     }
   ]

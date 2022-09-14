@@ -4,94 +4,99 @@
     </div>
     <div class="dashboard__graphs_container">
         <div class="dashboard__first_graphs">
-            <div class="dashboard__first_graph">
-                <span style="font-size: 12px;">Dispensers totais</span>
+            <div class="dashboard__first_graph green_color">
+                <span style="font-size: 14px; font-weight: 900;">Dispensers totais</span>
                 <span>13</span>
             </div>
-            <div class="dashboard__first_graph">
-                <span style="font-size: 12px;">Dispensers sem carga</span>
-                <span>0</span>
+            <div class="dashboard__first_graph yellow_color">
+                <span style="font-size: 14px; font-weight: 900;">Uso total dos dispensers</span>
+                <span>213</span>
             </div>
             <div class="dashboard__first_graph">
-                <span style="font-size: 12px;">Numero total de reabastecimentos</span>
+                <span style="font-size: 14px; font-weight: 900;">Numero total de reabastecimentos</span>
                 <span>32</span>
             </div>
-            <div class="dashboard__first_graph">
-                <span style="font-size: 12px;">Dispensers com nivel de fluido crítico</span>
+            <div class="dashboard__first_graph red_color">
+                <span style="font-size: 14px; font-weight: 1000;">Dispensers com nivel de fluido crítico</span>
                 <span>2</span>
             </div>
         </div>
         <div class="dashboard__graphs">
-            <div class="dashboard__pie_container">
-                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
-                <div class="dashboard__grafic_container">
-                    <div class="dashboard__pie_chart" [style.--p]="'44'" [style.--c]="'red'" style="--b:15px">
-                        44%
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard__pie_container">
-                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
-                <div class="dashboard__grafic_container">
-                    <div class="dashboard__pie_chart" [style.--p]="'82'" [style.--c]="'red'" style="--b:15px">
-                        82%
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard__pie_container">
-                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
-                <div class="dashboard__grafic_container">
-                    <div class="dashboard__pie_chart" [style.--p]="'13'" [style.--c]="'red'" style="--b:15px">
-                        13%
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard__pie_container">
-                <h2 style="background-color: #242731; margin: 20px;">texto</h2>
-                <div class="dashboard__grafic_container">
-                    <div class="dashboard__pie_chart" [style.--p]="'95'" [style.--c]="'red'" style="--b:15px">
-                        95%
-                    </div>
-                </div>
-            </div>
-            <div class="dashboard__sidegraph_container">
-                <h3 style="color: white; background: #242731; margin: 20px auto; ">Grafico 2</h3>
-                <div class="dashboard__sidegraph_chart">
-                    <div class="dashboard__sidegraph_part percent-{{ percent_one }}">
-                        <div class="dashboard__sidegraph_label">yes</div>
-                        <div class="dashboard__sidegraph_bar bar_one">
-                            <div class="dashboard__sidegraph_label">75%</div>
+            <div class="dashboard__second_graphs">
+                <div class="dashboard__pie_container">
+                    <h3>Media de uso por setor</h3>
+                    <div class="dashboard__grafic_container">
+                        <div class="dashboard__pie_chart" [style.--p]="'52'" [style.--c]="'#a1a111'" style="--b:15px">
+                            52%
                         </div>
                     </div>
-                    <div class="dashboard__sidegraph_part percent-{{ percent_two }}">
-                        <div class="dashboard__sidegraph_label">no</div>
-                        <div class="dashboard__sidegraph_bar bar_two">
-                            <div class="dashboard__sidegraph_label">25%</div>
+                </div>
+                <div class="dashboard__pie_container">
+                    <h3>Nivel de segurança de contaminação</h3>
+                    <div class="dashboard__grafic_container">
+                        <div class="dashboard__pie_chart" [style.--p]="'85'" [style.--c]="'darkgreen'" style="--b:15px">
+                            85%
                         </div>
                     </div>
-                    <div class="dashboard__sidegraph_part percent-{{ percent_tree }}">
-                        <div class="dashboard__sidegraph_label">yes</div>
-                        <div class="dashboard__sidegraph_bar bar_tree">
-                            <div class="dashboard__sidegraph_label">38%</div>
+                </div>
+                <div class="dashboard__pie_container">
+                    <h3>Fluidos proximos ao vencimento</h3>
+                    <div class="dashboard__grafic_container">
+                        <div class="dashboard__pie_chart" [style.--p]="'13'" [style.--c]="'darkred'" style="--b:15px">
+                            13%
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard__pie_container">
+                    <h3>Dispensers usados até o fim</h3>
+                    <div class="dashboard__grafic_container">
+                        <div class="dashboard__pie_chart" [style.--p]="'95'" [style.--c]="'darkgreen'" style="--b:15px">
+                            95%
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="dashboard__frame_bar_container">
-                <h3 style="color: white; background: #242731; margin: 20px auto;">Grafico 3</h3>
-                <div class="dashboard__frame_bar">
-                    <div class="dashboard__bar_data dashboard__bar_data1"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data2"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data3"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data4"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data5"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data6"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data7"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data8"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data9"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data10"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data11"></div>
-                    <div class="dashboard__bar_data dashboard__bar_data12"></div>
+            <div class="dashboard__third_graphs">
+                <div class="dashboard__sidegraph_container">
+                    <h3 style="color: white; background: #242731; margin: 20px auto; ">Gastos por setor</h3>
+                    <div class="dashboard__sidegraph_chart">
+                        <div class="dashboard__sidegraph_part percent-{{ percent_one }}">
+                            <div class="dashboard__sidegraph_label">Pronto socorro</div>
+                            <div class="dashboard__sidegraph_bar bar_one">
+                                <div class="dashboard__sidegraph_label">53%</div>
+                            </div>
+                        </div>
+                        <div class="dashboard__sidegraph_part percent-{{ percent_two }}">
+                            <div class="dashboard__sidegraph_label">UTI Adulto</div>
+                            <div class="dashboard__sidegraph_bar bar_two">
+                                <div class="dashboard__sidegraph_label">22%</div>
+                            </div>
+                        </div>
+                        <div class="dashboard__sidegraph_part percent-{{ percent_tree }}">
+                            <div class="dashboard__sidegraph_label">Pediatria</div>
+                            <div class="dashboard__sidegraph_bar bar_tree">
+                                <div class="dashboard__sidegraph_label">25%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard__frame_bar_container">
+                    <h3 style="color: white; background: #242731; margin: 20px auto;">Uso dos dispensers ao decorrer dos meses
+                    </h3>
+                    <div class="dashboard__frame_bar">
+                        <div class="dashboard__bar_data dashboard__bar_data1"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data2"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data3"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data4"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data5"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data6"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data7"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data8"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data9"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data10"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data11"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data12"></div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@
 
 .navbar-mobile__image_invisible {
     width: 100%;
-    background-color: #584f4f;
+    background-color: #242731;
     border-radius: 5px;
 }
 
@@ -63,7 +63,7 @@
     display: none;
     margin-top: 10px;
     margin-right: 5px;
-    background-color: #584f4f;
+    background-color: #242731;
     border-radius: 5px;
 }
 
@@ -95,12 +95,39 @@
     }
 }
 
+.pageOn {
+    border: solid 1px #242731;
+    background-color: #13141a !important;
+    >span {
+        background-color: #13141a !important;
+    }
+}
+
 .navbar__local_img {
     width: 16px;
     background-color: #242731;
 }
 
 .navbar__cifra_img {
-    width: 16px;
+    width: 14px;
+    background-color: #242731;
+}
+
+.navbar__bag_img {
+    width: 18px;
+    background-color: #242731;
+}
+
+.navbar__lock_img {
+    width: 8px;
+    min-width: auto;
+    height: 12px;
+    aspect-ratio: 1;
+    min-height: auto;
+    margin: auto 5px;
+}
+
+.navbar__gear_img {
+    width: 20px;
     background-color: #242731;
 }

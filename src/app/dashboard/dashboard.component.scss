@@ -31,14 +31,32 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-    margin: 30px auto;
+    margin: 10px auto;
+}
+
+.dashboard__second_graphs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: auto;
+}
+
+.dashboard__third_graphs {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: auto;
 }
 
 .dashboard__first_graphs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     width: 95%;
 }
@@ -71,6 +89,13 @@
     background-color: #242731;
     border-radius: 15px;
     margin: 10px auto;
+    >h3 {
+        background-color: #242731;
+        margin: 20px;
+        width: auto;
+        min-width: auto;
+        text-align: center;
+    }
 }
 
 .dashboard__grafic_container {
@@ -148,9 +173,9 @@
     border-radius: 15px;
 }
 
-$color-grph_one: #f22;
+$color-grph_one: darkred;
 $color-grph_two: #56a;
-$color-grph_tree: #2a5;
+$color-grph_tree: darkgreen;
 $color-label: #FFF;
 $color-background: #242731;
 .dashboard__sidegraph_chart {
@@ -266,8 +291,8 @@ $color-background: #242731;
 //User Defined
 $dataNum:12;
 $name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
-$data:50% 40% 70% 22% 35% 40% 85% 36% 88% 62% 13% 98%;
-$usado: 96 12 13 54 654 123 5432 1234 43 1234 32 43;
+$data: 89% 62% 43% 71% 70% 85% 67% 67% 69% 81% 64% 91%;
+$usado: 442 312 213 354 347 423 332 334 343 403 322 453;
 //General Settings
 $width:100%;
 $height: 200px;
@@ -388,14 +413,15 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
 
 @media screen and (min-width: 820px) {
     .dashboard__first_graph {
-        width: 22%;
+        width: 22.83%;
         height: 100%;
         min-height: 100%;
     }
     .dashboard__first_graphs {
-        width: 95%;
+        width: 90%;
         height: 100px;
         min-height: 15%;
+        margin-bottom: 5px;
     }
     .dashboard__first_graph>span {
         max-width: 100%;
@@ -406,14 +432,46 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
 @media screen and (min-width: 912px) {
     .dashboard__graphs {
         width: 90%;
+        height: 100%;
+        min-height: 100%;
     }
     .dashboard__pie_container {
         width: 23%;
+        height: 93%;
     }
     .dashboard__sidegraph_container {
         width: 48%;
+        height: 100%;
     }
     .dashboard__frame_bar_container {
         width: 48%;
+        height: 100%;
+    }
+    .dashboard__second_graphs {
+        height: 295px;
+    }
+    .dashboard__third_graphs {
+        height: 295px;
+    }
+}
+
+.red_color {
+    background: darkred;
+    >span {
+        background: darkred
+    }
+}
+
+.green_color {
+    background: darkgreen;
+    >span {
+        background: darkgreen
+    }
+}
+
+.yellow_color {
+    background: #a1a111;
+    >span {
+        background: #a1a111;
     }
 }

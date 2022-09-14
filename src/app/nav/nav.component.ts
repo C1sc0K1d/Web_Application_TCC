@@ -15,7 +15,6 @@ export class NavComponent implements OnInit {
 
   ngOnInit() : void {
     this.checkPage();
-    console.log(this.page);
   }
 
   goToMain(): void {

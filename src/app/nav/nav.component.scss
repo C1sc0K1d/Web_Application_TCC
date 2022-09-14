@@ -1,63 +1,121 @@
-* {
-    background-color: #242731;
-    height: auto;
-    min-height: auto;
-    z-index: 999;
-}
-
-.navbar__container {
-    background-color: #242731;
-    height: 10%;
-    min-height: 10%;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    top: 0;
-}
-
-.navbar__container:hover {
-    opacity: 1;
-}
-
-.navbar__babliuci_logo {
-    width: 20px;
-    height: auto;
-    min-height: auto;
-    min-width: auto;
-    margin: auto 0 auto 20px;
-}
-
-.navbar__logo {
-    width: auto;
-    min-width: auto;
-    padding: 10px;
-}
-
-.navbar__navigation {
-    width: 160px;
-    min-width: auto;
-    height: 100%;
-    background-color: #242731;
-    border: 1px solid #242731;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.pageOn>span {
-    border-bottom: 2px solid white;
-    padding: 4px;
-    width: auto;
-    min-width: auto;
-}
-
-.navbar__navigation>span {
-    padding: 4px;
-    width: auto;
-    min-width: auto;
-}
-
-.navbar__navigation:hover>span {
-    border-bottom: 2px solid white;
-}
+    * {
+        background-color: #242731;
+        height: auto;
+        min-height: auto;
+        z-index: 999;
+    }
+    
+    .navbar__container {
+        background-color: #242731;
+        height: 10%;
+        min-height: 10%;
+        position: fixed;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        top: 0;
+    }
+    
+    .navbar__container:hover {
+        opacity: 1;
+    }
+    
+    .navbar__babliuci_logo {
+        width: 25px;
+        height: auto;
+        min-height: auto;
+        min-width: auto;
+        margin: auto 0 auto 20px;
+    }
+    
+    .navbar__logo {
+        width: auto;
+        min-width: auto;
+        padding: 10px;
+    }
+    
+    .navbar__navigation {
+        width: 160px;
+        min-width: auto;
+        height: 100%;
+        background-color: #242731;
+        border: 1px solid #242731;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        >span {
+            padding: 4px;
+            width: auto;
+            min-width: auto;
+        }
+    }
+    
+    .navbar__navigation:hover {
+        cursor: pointer;
+    }
+    
+    .navbar__navigation_of {
+        width: 190px;
+        min-width: auto;
+        height: 100%;
+        background-color: #242731;
+        border: 1px solid #242731;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #55575e !important;
+        >span {
+            padding: 4px;
+            width: auto;
+            min-width: auto;
+            color: #55575e !important;
+        }
+    }
+    
+    .pageOn>span {
+        border-bottom: 2px solid white;
+        padding: 4px;
+        width: auto;
+        min-width: auto;
+    }
+    
+    .navbar__navigation:hover>span {
+        border-bottom: 2px solid white;
+    }
+    
+    .navbar__user_img_container {
+        width: 100%;
+        min-width: auto;
+        height: auto;
+        min-height: auto;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-direction: row;
+    }
+    
+    .navbar__lock_img {
+        width: 8px;
+        min-width: auto;
+        height: 12px;
+        aspect-ratio: 1;
+        min-height: auto;
+        margin: auto 5px;
+    }
+    
+    .navbar__notification_img {
+        width: 25px;
+        min-width: auto;
+        height: 25px;
+        aspect-ratio: 1;
+        margin: auto 10px;
+    }
+    
+    .navbar__user_img {
+        width: 40px;
+        min-width: auto;
+        height: 40px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        margin: auto 20px;
+    }
