@@ -1,11 +1,11 @@
 <div class="local__container">
     <div class="local__logo_div">
-        <h3 class="local__logo">Dispenser</h3>
+        <h3 class="local__logo">{{local}}</h3>
     </div>
     <div class="local__card_container_div">
         <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container">
             <div class="local__card_body">
-                <span>Corredor leste</span>
+                <span style="text-align: center; font-size: 21px;">{{dispenser.dispenser}}</span>
                 <div class="local__grafic_container">
                     <div class="local__pie_chart" [style.--p]="dispenser.percentage" [style.--c]="dispenser.color" style="--b:9px"> {{dispenser.percentage}}%
                     </div>

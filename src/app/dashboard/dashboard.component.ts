@@ -9,13 +9,18 @@ import { AuthService } from '../welcome/login/auth.service';
 export class DashboardComponent implements OnInit {
 
   percent_one = 53;
-  percent_two = 22;
-  percent_tree = 25;
+  percent_two = 30;
+  percent_tree = 17;
+  filter = false;
 
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
     this.authService.hideBar(false);
+  }
+
+  openFilter(): void {
+    this.filter = !this.filter
   }
 
 }

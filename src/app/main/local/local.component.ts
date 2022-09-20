@@ -12,21 +12,26 @@ export class LocalComponent implements OnInit {
   percentage = 35;
   color = 'red';
   modalVisible = false;
+  locais = ["Pronto Socorro", "UTI Adulto", "Pediatria"];
+  local = '';
   dispensers: any[] = [
     {
       percentage: 65,
       color: 'darkgreen',
-      signal: false
+      signal: false,
+      dispenser: "Corredor norte"
     },
     {
       percentage: 42,
       color: '#a1a111',
-      signal: false
+      signal: false,
+      dispenser: "Corredor sul"
     },
     {
       percentage: 13,
       color: 'darkred',
-      signal: false
+      signal: false,
+      dispenser: "Saida banheiro"
     }
   ]
 
@@ -34,6 +39,7 @@ export class LocalComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.hideBar(false);
+    this.chooseLocal(this.router.url.slice(-1));
   }
 
    private delay(ms: number) {
@@ -50,10 +56,12 @@ export class LocalComponent implements OnInit {
 
   modalToInvisible() {
     if (this.modalVisible == true) {
-      this.modalVisible = false;
-      console.log('entro');
-      
+      this.modalVisible = false;      
     }
+  }
+
+  chooseLocal(local: string): void {
+    this.local = this.locais[parseInt(local) - 1];
   }
 
 }
