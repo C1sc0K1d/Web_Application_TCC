@@ -10,7 +10,15 @@ import { NavMobileComponent } from './nav-mobile/nav-mobile.component';
 import { AuthService } from './welcome/login/auth.service';
 import { AuthGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { environment } from 'src/environments/environment';
+import { IMqttServiceOptions, MqttModule } from "ngx-mqtt";
+import { environment as env } from '../environments/environment';
+
+const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+    hostname: env.mqtt.server,
+    port: env.mqtt.port,
+    protocol: (env.mqtt.protocol === "wss") ? "wss" : "ws",
+    path: '',
+};
 
 @NgModule({
   declarations: [					
@@ -23,7 +31,8 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     CommonModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
   ],
   providers: [{provide: LocationStrategy, useClass: PathLocationStrategy }, AuthService, AuthGuard],
   bootstrap: [AppComponent]
