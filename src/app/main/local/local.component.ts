@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IMqttMessage } from 'ngx-mqtt';
+import { Subscription } from 'rxjs';
+import { MqttRequest } from 'src/app/utils/services/mqtt-request.component';
 import { AuthService } from 'src/app/welcome/login/auth.service';
 
 @Component({
@@ -14,32 +17,17 @@ export class LocalComponent implements OnInit {
   modalVisible = false;
   locais = ["Pronto Socorro", "UTI Adulto", "Pediatria"];
   local = '';
-  dispensers: any[] = [
-    {
-      percentage: 65,
-      color: 'darkgreen',
-      signal: false,
-      dispenser: "Corredor norte"
-    },
-    {
-      percentage: 42,
-      color: '#a1a111',
-      signal: false,
-      dispenser: "Corredor sul"
-    },
-    {
-      percentage: 13,
-      color: 'darkred',
-      signal: false,
-      dispenser: "Saida banheiro"
-    }
-  ]
+  dispensers: any[] = []
 
-  constructor(private authService: AuthService, private router: Router) { }
+  private deviceId: string;
+  subscription: Subscription;
+
+  constructor(private authService: AuthService, private router: Router, private eventMqtt: MqttRequest) { }
 
   ngOnInit(): void {
     this.authService.hideBar(false);
     this.chooseLocal(this.router.url.slice(-1));
+    this.subscribeToTopic();
   }
 
    private delay(ms: number) {
@@ -62,6 +50,32 @@ export class LocalComponent implements OnInit {
 
   chooseLocal(local: string): void {
     this.local = this.locais[parseInt(local) - 1];
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+        this.subscription.unsubscribe();
+    }
+  }
+
+  private subscribeToTopic() {
+    console.log("test");
+    
+      this.subscription = this.eventMqtt.topic(this.deviceId)
+          .subscribe((data: IMqttMessage) => {
+              let item = JSON.parse(data.payload.toString());
+              if (item.fluidLevel > 70) {
+                item.color = 'green';
+              } else if (item.fluidLevel < 70 && item.fluidLevel > 40) {
+                item.color = 'yellow';
+              } else {
+                item.color = 'red';
+              }
+              item.signal = false;
+              this.dispensers.push(item);
+              console.log(item);
+              console.log(this.dispensers);              
+          });
   }
 
 }

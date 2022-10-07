@@ -1,5 +1,7 @@
 import { HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { IMqttMessage, MqttService } from "ngx-mqtt";
+import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -12,6 +14,12 @@ export class MqttRequest {
       'Content-Type': 'application/json' })
   };
 
-	constructor() {}
+  private endpoint: string;
 
+	constructor( private _mqttService: MqttService) { this.endpoint = 'Dabliuci-Project'; }
+
+  topic(deviceId: string): Observable<IMqttMessage> {
+    let topicName = `${this.endpoint}/#`;     
+    return this._mqttService.observe(topicName);
+  }
 }

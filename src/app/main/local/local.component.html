@@ -3,11 +3,11 @@
         <h3 class="local__logo">{{local}}</h3>
     </div>
     <div class="local__card_container_div">
-        <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container">
+        <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container" [ngClass]="{'local__card_container_no_max': dispenser.signal}">
             <div class="local__card_body">
-                <span style="text-align: center; font-size: 21px;">{{dispenser.dispenser}}</span>
+                <span style="text-align: center; font-size: 55%;">{{dispenser.name}}</span>
                 <div class="local__grafic_container">
-                    <div class="local__pie_chart" [style.--p]="dispenser.percentage" [style.--c]="dispenser.color" style="--b:9px"> {{dispenser.percentage}}%
+                    <div class="local__pie_chart" [style.--p]="dispenser.fluidLevel" [style.--c]="dispenser.color" style="--b:9px"> {{dispenser.fluidLevel}}%
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <br>
                     <span><b>Ultimo abastecimento</b><br>21/08/2022 - 21:31</span>
                     <br>
-                    <span><b>Uso após abastecimento</b><br>53</span>
+                    <span><b>Uso após abastecimento</b><br>{{ dispenser.usedCount }}</span>
                     <br>
                 </div>
             </div>

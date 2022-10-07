@@ -12,11 +12,13 @@ import { AuthGuard } from './guards/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { IMqttServiceOptions, MqttModule } from "ngx-mqtt";
 import { environment as env } from '../environments/environment';
+import { MqttRequest } from './utils/services/mqtt-request.component';
+import { Requests } from './utils/services/requests.component';
 
 const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     hostname: env.mqtt.server,
     port: env.mqtt.port,
-    protocol: (env.mqtt.protocol === "wss") ? "wss" : "ws",
+    protocol: (env.mqtt.protocol === "ws") ? "ws" : "wss",
     path: '',
 };
 
@@ -34,6 +36,15 @@ const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     HttpClientModule,
     MqttModule.forRoot(MQTT_SERVICE_OPTIONS)
   ],
-  providers: [{provide: LocationStrategy, useClass: PathLocationStrategy }, AuthService, AuthGuard],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: PathLocationStrategy
+    }, 
+    AuthService,
+    AuthGuard,
+    MqttRequest,
+    Requests
+  ],
   bootstrap: [AppComponent]
 }) export class AppModule {}
