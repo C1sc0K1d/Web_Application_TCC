@@ -65,7 +65,6 @@ export class LocalComponent implements OnInit {
           .subscribe((data: IMqttMessage) => {
               let item = JSON.parse(data.payload.toString());
 
-              const { length } = this.dispensers;
               let found = this.dispensers.some(el => el.id === item.id);
               console.log(found);
 
