@@ -89,4 +89,5 @@ export class LocalComponent implements OnInit {
               //console.log(item);
               //console.log(this.dispensers);              
           });
-        console.log(this.dispensers);              
+        console.log(this.dispensers); 
+  }             

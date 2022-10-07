@@ -49,6 +49,12 @@ b {
     border-radius: 15px;
     margin: 15px auto;
     padding: 10px;
+    min-height: 182px;
+    max-height: 182px;
+}
+
+.local__card_container_no_max {
+    max-height: none !important;
 }
 
 .local__card_body {

@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: '',
+  mqtt: {
+		server: 'test.mosquitto.org',
+		protocol: "ws",
+		port: 8080
+	}
 };
 
 /*
