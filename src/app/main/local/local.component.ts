@@ -66,7 +66,6 @@ export class LocalComponent implements OnInit {
               let item = JSON.parse(data.payload.toString());
 
               let found = this.dispensers.some(el => el.id === item.id);
-              console.log(found);
 
               if (item.fluidLevel > 70) {
                 item.color = 'green';
@@ -79,7 +78,7 @@ export class LocalComponent implements OnInit {
 
               if (found) {
                 let index = this.dispensers.findIndex(el => el.id === item.id);
-                this.dispensers[index] = item;
+                this.dispensers[index] = item;  
               }
               else {
                 this.dispensers.push(item);

@@ -19,7 +19,7 @@ export class MqttRequest {
 	constructor( private _mqttService: MqttService) { this.endpoint = 'Dabliuci-Project'; }
 
   topic(deviceId: string): Observable<IMqttMessage> {
-    let topicName = `${this.endpoint}/#`;     
+    let topicName = `${this.endpoint}/#`;
     return this._mqttService.observe(topicName);
   }
 }
