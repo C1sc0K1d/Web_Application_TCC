@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  baseUrl: '',\n  mqtt: {\n    server: 'test.mosquitto.org',\n    protocol: \"wss\",\n    port: 8081\n  }\n};","map":null,"metadata":{},"sourceType":"module"}

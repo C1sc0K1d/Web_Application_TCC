@@ -3,7 +3,7 @@ export const environment = {
   baseUrl: '',
   mqtt: {
 		server: 'test.mosquitto.org',
-		protocol: "ws",
-		port: 8080
+		protocol: "wss",
+		port: 8081
 	}
 };
