@@ -1,39 +1,15 @@
 <div class="main__container">
     <h3 class="main__logo">Locais</h3>
-    <div class="main__card_container">
+    <div *ngFor="let local of locais; let i = index" [attr.data-index]="i" class="main__card_container">
         <div class="main__card_body">
-            <span>Garagem</span>
+            <span>{{ local }}</span>
             <div class="main__grafic_container">
-                <div class="main__pie" style="background-color: #a1a111;"></div>
+                <div class="main__pie" style="background-color: red;"></div>
             </div>
         </div>
-        <div class="main__card_footer" (click)="goToLocal(1)">
+        <div class="main__card_footer" (click)="goToLocal(i + 1)">
             <span style="font-size: 12px;">saiba mais</span>
             <span>></span>
         </div>
     </div>
-    <!--div class="main__card_container">
-        <div class="main__card_body">
-            <span>UTI Adulto</span>
-            <div class="main__grafic_container">
-                <div class="main__pie" style="background-color: darkred;"></div>
-            </div>
-        </div>
-        <div class="main__card_footer" (click)="goToLocal(2)">
-            <span style="font-size: 12px;">saiba mais</span>
-            <span>></span>
-        </div>
-    </div>
-    <div class="main__card_container">
-        <div class="main__card_body">
-            <span>Pediatria</span>
-            <div class="main__grafic_container">
-                <div class="main__pie" style="background-color: darkgreen;"></div>
-            </div>
-        </div>
-        <div class="main__card_footer" (click)="goToLocal(3)">
-            <span style="font-size: 12px;">saiba mais</span>
-            <span>></span>
-        </div>
-    </div-->
 </div>

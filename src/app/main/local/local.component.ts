@@ -15,19 +15,22 @@ export class LocalComponent implements OnInit {
   percentage = 35;
   color = 'red';
   modalVisible = false;
-  locais = ["Garagem", "UTI Adulto", "Pediatria"];
+  locais = ['Administração', 'Centro Cirúrgico', 'Pediatria', 'Enfermaria', 'UTI'];
+  topics = ['/1_andar/administracao', '/1_andar/centro_cirurgico', '/1_andar/pediatria', '/terreo/enfermaria', '/terreo/uti'];
   local = '';
-  dispensers: any[] = []
+  topic = '';
+  dispensers: any[] = [];
+  signals = [];
 
-  private deviceId: string;
   subscription: Subscription;
 
   constructor(private authService: AuthService, private router: Router, private eventMqtt: MqttRequest) { }
 
   ngOnInit(): void {
     this.authService.hideBar(false);
-    this.chooseLocal(this.router.url.slice(-1));
+    this.chooseTopic(this.router.url.slice(-1))
     this.subscribeToTopic();
+    this.chooseLocal(this.router.url.slice(-1));
   }
 
    private delay(ms: number) {
@@ -39,7 +42,7 @@ export class LocalComponent implements OnInit {
   }
 
   showDetails(index: number): void {
-    this.dispensers[index].signal = !this.dispensers[index].signal;
+    this.signals[index] = !this.signals[index];
   }
 
   modalToInvisible() {
@@ -48,8 +51,12 @@ export class LocalComponent implements OnInit {
     }
   }
 
-  chooseLocal(local: string): void {
+  chooseLocal(local: string): void {    
     this.local = this.locais[parseInt(local) - 1];
+  }
+
+  chooseTopic(topic: string): void {
+    this.topic = this.topics[parseInt(topic) - 1]
   }
 
   ngOnDestroy(): void {
@@ -58,11 +65,18 @@ export class LocalComponent implements OnInit {
     }
   }
 
-  private subscribeToTopic() {
-    console.log("test");
-    
-      this.subscription = this.eventMqtt.topic(this.deviceId)
+  private subscribeToTopic() {    
+      this.subscription = this.eventMqtt.topic(this.topic)
           .subscribe((data: IMqttMessage) => {
+
+              let local =  data.topic;
+              console.log(local);
+              
+
+              if (this.locais.indexOf(local) == -1) {
+                //this.locais.push(local);
+              }
+
               let item = JSON.parse(data.payload.toString());
 
               let found = this.dispensers.some(el => el.id === item.id);
@@ -74,7 +88,6 @@ export class LocalComponent implements OnInit {
               } else {
                 item.color = 'red';
               }
-              item.signal = false;
 
               if (found) {
                 let index = this.dispensers.findIndex(el => el.id === item.id);
@@ -82,8 +95,8 @@ export class LocalComponent implements OnInit {
               }
               else {
                 this.dispensers.push(item);
+                this.signals.push(false);
               }            
           });
-        console.log(this.dispensers); 
   }
 }        

@@ -3,9 +3,9 @@
         <h3 class="local__logo">{{local}}</h3>
     </div>
     <div class="local__card_container_div">
-        <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container" [ngClass]="{'local__card_container_no_max': dispenser.signal}">
+        <div *ngFor="let dispenser of dispensers; let i = index" [attr.data-index]="i" class="local__card_container" [ngClass]="{'local__card_container_no_max': signals[i]}">
             <div class="local__card_body">
-                <span style="text-align: center; font-size: 55%;">{{dispenser.name}}</span>
+                <div style="text-align: center; font-size: 55%; background-color: transparent;">{{dispenser.name}}</div>
                 <div class="local__grafic_container">
                     <div class="local__pie_chart" [style.--p]="dispenser.fluidLevel" [style.--c]="dispenser.color" style="--b:9px"> {{dispenser.fluidLevel}}%
                     </div>
@@ -14,16 +14,16 @@
             <div class="local__card_footer">
                 <div (click)="showDetails(i)" class="local__card_footer_head">
                     <span style="font-size: 12px;">Mais informações</span>
-                    <span [ngClass]="{'local__card_footer_signal_invisible': dispenser.signal}">+</span>
-                    <span [ngClass]="{'local__card_footer_signal_invisible': !dispenser.signal}">-</span>
+                    <span [ngClass]="{'local__card_footer_signal_invisible': signals[i]}">+</span>
+                    <span [ngClass]="{'local__card_footer_signal_invisible': !signals[i]}">-</span>
                 </div>
-                <div [ngClass]="{'local__card_footer_signal_invisible': !dispenser.signal}" class="local__card_footer_foot_open">
+                <div [ngClass]="{'local__card_footer_signal_invisible': !signals[i]}" class="local__card_footer_foot_open">
                     <br>
                     <span><b>Instalação</b><br>13/08/2022</span>
                     <br>
                     <span><b>Uso total</b><br>{{ dispenser.usedCount }}</span>
                     <br>
-                    <span><b>Ultimo abastecimento</b><br>21/08/2022 - 21:31</span>
+                    <span><b>Ultimo abastecimento</b><br>{{ dispenser.lastRefillDate }}</span>
                     <br>
                     <span><b>Uso após abastecimento</b><br>{{ dispenser.usedCount }}</span>
                     <br>
