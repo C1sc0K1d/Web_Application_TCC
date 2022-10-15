@@ -16,7 +16,7 @@ export class MqttRequest {
 
   private endpoint: string;
 
-	constructor( private _mqttService: MqttService) { this.endpoint = 'dabliuci-startuptop10'; }
+	constructor( private _mqttService: MqttService) { this.endpoint = 'dabliuci_company'; }
 
   topic(topic: string): Observable<IMqttMessage> {
     let topicName = `${this.endpoint}${topic}/#`;

@@ -16,7 +16,7 @@ export class LocalComponent implements OnInit {
   color = 'red';
   modalVisible = false;
   locais = ['Administração', 'Centro Cirúrgico', 'Pediatria', 'Enfermaria', 'UTI'];
-  topics = ['/1_andar/administracao', '/1_andar/centro_cirurgico', '/1_andar/pediatria', '/terreo/enfermaria', '/terreo/uti'];
+  topics = ['/1_Andar/Administracao', '/1_Andar/Centro_Cirurgico', '/1_Andar/Pediatria', '/Terreo/Enfermaria', '/Terreo/UTI'];
   local = '';
   topic = '';
   dispensers: any[] = [];
