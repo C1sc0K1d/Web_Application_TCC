@@ -260,14 +260,17 @@ $color-background: #242731;
         background-color: #242731;
         >.dashboard__sidegraph_label {
             flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
             flex-basis: 25%;
             text-align: right;
-            padding-right: 1em;
+            padding-right: 8px;
             margin: 0.5em 0;
-            height: 2em;
-            line-height: 2em;
+            line-height: 1em;
             color: $color-label;
             font-weight: 600;
+            font-size: 90%;
             background-color: #242731;
         }
         .dashboard__sidegraph_bar {
