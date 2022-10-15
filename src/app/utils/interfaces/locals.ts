@@ -1,5 +1,5 @@
 export interface Locals {
-	local : string|any;
-	totalUsed : number|any;
-	percent : number|any;
+	local? : string | null;
+	totalUsed? : number | null;
+	percent? : number | null;
 }

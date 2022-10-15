@@ -73,10 +73,10 @@
                 <div class="dashboard__sidegraph_container">
                     <h3 style="color: white; background: #242731; margin: 20px auto; ">Quantidade de uso por setor</h3>
                     <div class="dashboard__sidegraph_chart">
-                        <div class="dashboard__sidegraph_part percent-{{ percent_one }}">
-                            <div class="dashboard__sidegraph_label">Administração</div>
-                            <div class="dashboard__sidegraph_bar bar_one">
-                                <div class="dashboard__sidegraph_label">53%</div>
+                        <div *ngFor="let local of locaisObj; let i = index" [attr.data-index]="i" class="dashboard__sidegraph_part percent-{{ local.percent }}">
+                            <div class="dashboard__sidegraph_label">{{ local.local }}</div>
+                            <div class="dashboard__sidegraph_bar bar_two">
+                                <div class="dashboard__sidegraph_label">{{ local.totalUsed }}</div>
                             </div>
                         </div>
                     </div>

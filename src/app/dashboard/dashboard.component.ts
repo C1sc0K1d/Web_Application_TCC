@@ -18,19 +18,13 @@ export class DashboardComponent implements OnInit {
   percent_four = 19;
   percent_five = 21;
 
-  grafOne: Locals = {
-    local: undefined,
-    totalUsed: undefined,
-    percent: undefined
-  };
-  
   filter = false;
   dispensers: any[] = [];
 
   lowDispensers = 0;
   usedTotal = 0;
 
-  locaisObj: Locals[];
+  locaisObj: Locals[] = [];
   locais = []
 
   subscription: Subscription;
@@ -53,7 +47,6 @@ export class DashboardComponent implements OnInit {
   }
 
   private subscribeToTopic() {
-    let index = 0;
     this.subscription = this.eventMqtt.topic('')
         .subscribe((data: IMqttMessage) => {
 
@@ -74,33 +67,42 @@ export class DashboardComponent implements OnInit {
             }
             this.lowDispensers = 0;
             this.usedTotal = 0;
-            this.dispensers.forEach(async element => {
+            let grafOne = {
+              local: undefined,
+              totalUsed: undefined,
+              percent: 0
+            };
+            let x = 0;
+            console.log("start");           
+            this.dispensers.forEach(element => {
               if (element.fluidLevel < 25) {
                 this.lowDispensers = this.lowDispensers + 1;
               }
               this.usedTotal = this.usedTotal + element.usedCount;
-
-              if (this.locais.indexOf(item.local) == -1) {
-                this.locais.push(item.local);
-  
-                this.locaisObj[index].local  = item.local;
-                this.locaisObj[index].totalUsed = item.usedCount;
-                this.locaisObj[index].percent = ((100* this.grafOne.totalUsed)/this.usedTotal);
-                console.log(this.grafOne);
-
-                index++;
-                console.log(this.locaisObj);
-              } else {
-                //let index = this.locaisObj.findIndex(el => el.local === item.local);
-                //this.locaisObj[index].totalUsed = this.locaisObj[index].totalUsed + item.usedCount;
-                //this.locaisObj[index].percent = ((100*this.grafOne.totalUsed)/this.usedTotal);
-                //console.log(this.locais);
-              }
             });
+            this.dispensers.forEach(element => {
+              if (this.locais.indexOf(element.local) == -1) {
+                this.locais.push(element.local);
 
-            
+                grafOne.local  = element.local;
+                grafOne.totalUsed = element.usedCount;
+                grafOne.percent = Math.trunc((100 * grafOne.totalUsed)/(this.usedTotal));
 
-            //console.log(this.dispensers);            
+                this.locaisObj.push(grafOne);
+                this.locaisObj.sort((a,b) => b.totalUsed - a.totalUsed);
+              } else {
+                let index = this.locaisObj.findIndex(el => el.local === element.local);
+                let result = this.dispensers.filter(value => value.local === element.local);
+                x = 0;
+                result.forEach(filteredEl => {
+                  x = x + filteredEl.usedCount;
+                });
+                
+                this.locaisObj[index].totalUsed = x;
+                this.locaisObj[index].percent = Math.trunc((100 *  this.locaisObj[index].totalUsed)/(this.usedTotal));
+                this.locaisObj.sort((a,b) => b.totalUsed - a.totalUsed);
+              }
+            });         
         });
   }
 
