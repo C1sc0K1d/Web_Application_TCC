@@ -39,8 +39,8 @@
                 <div class="dashboard__pie_container">
                     <h3>Media de uso por setor</h3>
                     <div class="dashboard__grafic_container">
-                        <div class="dashboard__pie_chart" [style.--p]="'52'" [style.--c]="'#a1a111'" style="--b:15px">
-                            42x
+                        <div class="dashboard__pie_chart" [style.--p]="mediaSetor" [style.--c]="mediaColor" style="--b:15px">
+                            {{ mediaSetor }}x
                         </div>
                     </div>
                 </div>
@@ -55,16 +55,16 @@
                 <div class="dashboard__pie_container">
                     <h3>Fluidos proximos ao vencimento</h3>
                     <div class="dashboard__grafic_container">
-                        <div class="dashboard__pie_chart" [style.--p]="'13'" [style.--c]="'darkgreen'" style="--b:15px">
-                            2
+                        <div class="dashboard__pie_chart" [style.--p]="'0'" [style.--c]="'darkgreen'" style="--b:15px">
+                            0
                         </div>
                     </div>
                 </div>
                 <div class="dashboard__pie_container">
-                    <h3>Litros de alcool em gel usado</h3>
+                    <h3>Álcool em gel usado (mL)</h3>
                     <div class="dashboard__grafic_container">
                         <div class="dashboard__pie_chart" [style.--p]="'100'" [style.--c]="'#2884FF'" style="--b:2px">
-                            31
+                            {{ gramasAlcool }}
                         </div>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
                         <div class="dashboard__bar_data dashboard__bar_data7"></div>
                         <div class="dashboard__bar_data dashboard__bar_data8"></div>
                         <div class="dashboard__bar_data dashboard__bar_data9"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data10"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data10" [attr.oct_value]="oct_value"></div>
                         <div class="dashboard__bar_data dashboard__bar_data11"></div>
                         <div class="dashboard__bar_data dashboard__bar_data12"></div>
                     </div>

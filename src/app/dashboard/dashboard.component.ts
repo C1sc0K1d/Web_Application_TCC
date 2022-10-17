@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { IMqttMessage } from 'ngx-mqtt';
-import { async, first, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { Locals } from '../utils/interfaces/locals';
 import { MqttRequest } from '../utils/services/mqtt-request.component';
 import { AuthService } from '../welcome/login/auth.service';
@@ -11,15 +11,10 @@ import { AuthService } from '../welcome/login/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
-  percent_one = 53;
-  percent_two = 30;
-  percent_tree = 17;
-  percent_four = 19;
-  percent_five = 21;
-
   filter = false;
   dispensers: any[] = [];
+
+  mediaSetor = 0;
 
   lowDispensers = 0;
   usedTotal = 0;
@@ -28,6 +23,12 @@ export class DashboardComponent implements OnInit {
   locais = []
 
   subscription: Subscription;
+
+  mediaColor = 'red';
+  gramasAlcool = 0;
+
+  oct_value = '';
+  @HostBinding("style.--monthsGraf10") monthsGraf10 = '10%';
 
   constructor(private authService: AuthService, private eventMqtt: MqttRequest) { }
 
@@ -72,8 +73,7 @@ export class DashboardComponent implements OnInit {
               totalUsed: undefined,
               percent: 0
             };
-            let x = 0;
-            console.log("start");           
+            let x = 0; 
             this.dispensers.forEach(element => {
               if (element.fluidLevel < 25) {
                 this.lowDispensers = this.lowDispensers + 1;
@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit {
               if (this.locais.indexOf(element.local) == -1) {
                 this.locais.push(element.local);
 
-                grafOne.local  = element.local;
+                grafOne.local = element.local;
                 grafOne.totalUsed = element.usedCount;
                 grafOne.percent = Math.trunc((100 * grafOne.totalUsed)/(this.usedTotal));
 
@@ -101,6 +101,23 @@ export class DashboardComponent implements OnInit {
                 this.locaisObj[index].totalUsed = x;
                 this.locaisObj[index].percent = Math.trunc((100 *  this.locaisObj[index].totalUsed)/(this.usedTotal));
                 this.locaisObj.sort((a,b) => b.totalUsed - a.totalUsed);
+
+                this.mediaSetor = Math.trunc(this.usedTotal/this.locais.length);
+                if (this.mediaSetor > 70) {
+                  this.mediaColor = 'green';
+                } else if (this.mediaSetor > 50) {
+                  this.mediaColor = '#a1a111';
+                } else {
+                  this.mediaColor = 'red';
+                }
+
+                this.gramasAlcool = this.usedTotal * 0.86;
+                this.gramasAlcool = parseInt(this.gramasAlcool.toFixed(2));
+                this.oct_value = this.usedTotal.toString();
+
+                console.log(this.oct_value);
+                
+                this.monthsGraf10 = `${(this.usedTotal)/5}%`;
               }
             });         
         });

@@ -343,11 +343,6 @@ $color-background: #242731;
 }
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
-//User Defined
-$dataNum:12;
-$name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
-$data: 89% 62% 43% 71% 70% 85% 67% 67% 69% 81% 64% 91%;
-$usado: 442 312 213 354 347 423 332 334 343 403 322 453;
 //General Settings
 $width:100%;
 $height: 200px;
@@ -360,6 +355,9 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     margin: 0 auto 40px auto;
 }
 
+//User Defined
+$dataNum:12;
+$name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
 .dashboard__frame_bar:before {
     content: "";
     width: 100%;
@@ -380,6 +378,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     border-bottom: 1px solid #fff;
 }
 
+$usado: 442 312 213 354 347 423 332 334 343 attr(oct_value) 0 0;
 .dashboard__bar_data {
     width: 20px;
     position: absolute;
@@ -389,6 +388,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
     float: left;
 }
 
+$data: 89% 62% 43% 71% 70% 85% 67% 67% 69% var(--monthsGraf10) 0% 0%;
 @for $i from 1 through $dataNum {
     .dashboard__bar_data#{$i} {
         background: nth($color, $i);
@@ -506,7 +506,7 @@ $color:#D11717 #e23030 #e28484 #f58888 #f0b0b0 #520505 #7c2a2a #963c3c #8f6161 #
         height: 295px;
     }
     .dashboard__third_graphs {
-        height: 295px;
+        height: 353px;
     }
 }
 
