@@ -258,6 +258,7 @@ $color-background: #242731;
         display: flex;
         height: 3em;
         background-color: #242731;
+        flex-flow: row-reverse;
         >.dashboard__sidegraph_label {
             flex: 1;
             display: flex;
@@ -373,12 +374,12 @@ $name:"Jan""Fev""Mar""Abr""Maio""Jun""Jul""Ago""Set""Out""Nov""Dez";
     height: 50%;
     background: transparent;
     position: absolute;
-    top: 25%;
+    top: 50%;
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
 }
 
-$usado: 442 312 213 354 347 423 332 334 343 attr(oct_value) 0 0;
+$usado: attr(jan_value) attr(feb_value) attr(mar_value) attr(abr_value) attr(may_value) attr(jun_value) attr(jul_value) attr(ago_value) attr(sep_value) attr(oct_value) attr(nov_value) attr(dec_value);
 .dashboard__bar_data {
     width: 20px;
     position: absolute;
@@ -388,12 +389,12 @@ $usado: 442 312 213 354 347 423 332 334 343 attr(oct_value) 0 0;
     float: left;
 }
 
-$data: 89% 62% 43% 71% 70% 85% 67% 67% 69% var(--monthsGraf10) 0% 0%;
+$data: var(--monthsGraf01) var(--monthsGraf02) var(--monthsGraf03) var(--monthsGraf04) var(--monthsGraf05) var(--monthsGraf06) var(--monthsGraf07) var(--monthsGraf08) var(--monthsGraf09) var(--monthsGraf10) var(--monthsGraf11) var(--monthsGraf12);
 @for $i from 1 through $dataNum {
     .dashboard__bar_data#{$i} {
         background: nth($color, $i);
         height: 0px;
-        left: $width/($dataNum + 1) * $i - 3;
+        left: $width/($dataNum) * $i - 6;
         -webkit-animation: showBar#{$i} 1.2s $i*.1s forwards;
         -moz-animation: showBar#{$i} 1.2s $i*.1s forwards;
         animation: showBar#{$i} 1.2s $i*.1s forwards;
@@ -407,6 +408,7 @@ $data: 89% 62% 43% 71% 70% 85% 67% 67% 69% var(--monthsGraf10) 0% 0%;
     color: white;
     font-family: "roboto";
     font-weight: 300;
+    margin: -3px;
 }
 
 @for $i from 1 through $dataNum {

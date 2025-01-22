@@ -22,15 +22,15 @@
                 <span>{{ dispensers.length }}</span>
             </div>
             <div class="dashboard__first_graph yellow_color">
-                <span style="font-size: 14px; font-weight: 900;">Uso total dos dispensers</span>
+                <span style="font-size: 14px; font-weight: 900;">Uso total dos dispensers / mês</span>
                 <span>{{ usedTotal }}</span>
             </div>
             <div class="dashboard__first_graph">
-                <span style="font-size: 14px; font-weight: 900;">Numero total de reabastecimentos</span>
-                <span>{{ dispensers.length }}</span>
+                <span style="font-size: 14px; font-weight: 900;">Numero total de reabastecimentos / mês</span>
+                <span>{{ dispensers.length + 8 }}</span>
             </div>
             <div class="dashboard__first_graph red_color">
-                <span style="font-size: 14px; font-weight: 1000;">Dispensers com nivel de fluido crítico</span>
+                <span style="font-size: 14px; font-weight: 1000; margin: auto;">Dispensers com nivel de fluido crítico</span>
                 <span>{{ lowDispensers }}</span>
             </div>
         </div>
@@ -82,21 +82,21 @@
                     </div>
                 </div>
                 <div class="dashboard__frame_bar_container">
-                    <h3 style="color: white; background: #242731; margin: 20px auto;">Uso dos dispensers ao decorrer dos meses
+                    <h3 style="color: white; background: #242731; margin: 20px 4%;">Uso dos dispensers ao decorrer dos meses
                     </h3>
                     <div class="dashboard__frame_bar">
-                        <div class="dashboard__bar_data dashboard__bar_data1"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data2"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data3"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data4"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data5"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data6"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data7"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data8"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data9"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data1" [attr.jan_value]="jan_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data2" [attr.feb_value]="feb_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data3" [attr.mar_value]="mar_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data4" [attr.abr_value]="abr_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data5" [attr.may_value]="may_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data6" [attr.jun_value]="jun_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data7" [attr.jul_value]="jul_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data8" [attr.ago_value]="ago_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data9" [attr.sep_value]="sep_value"></div>
                         <div class="dashboard__bar_data dashboard__bar_data10" [attr.oct_value]="oct_value"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data11"></div>
-                        <div class="dashboard__bar_data dashboard__bar_data12"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data11" [attr.nov_value]="nov_value"></div>
+                        <div class="dashboard__bar_data dashboard__bar_data12" [attr.dec_value]="dec_value"></div>
                     </div>
                 </div>
             </div>
