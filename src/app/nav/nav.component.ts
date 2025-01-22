@@ -26,6 +26,11 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
+  goToWelcome(): void {
+    this.page = 'welcome'
+    this.router.navigate(['/welcome'])
+  }
+
   checkPage() : void {
     this.pages.some(element => {
       if (window.location.href.includes(element)) {

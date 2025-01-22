@@ -26,13 +26,19 @@ export class NavMobileComponent implements OnInit {
 
   goToMain(): void {
     this.router.navigate(['/main']);
-    this.showNavbar = !this.showNavbar;
+    this.showNavbar = false;
     this.page = 'main'
   }
   goToDashboard(): void {
     this.router.navigate(['/dashboard']);
-    this.showNavbar = !this.showNavbar;
+    this.showNavbar = false;
     this.page = 'dashboard'
+  }
+
+  goToWelcome(): void {
+    this.router.navigate(['/welcome']);
+    this.showNavbar = false;
+    this.page = 'welcome'
   }
 
   checkPage() : void {

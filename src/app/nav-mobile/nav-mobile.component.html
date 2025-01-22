@@ -2,7 +2,7 @@
     <img [ngClass]="{'navbar-mobile__image_invisible': !showNavbar, 'navbar-mobile__image_visible': showNavbar}" src="assets/icons/cardapio.png" alt="mobile navbar" (click)="showHideNavbar()">
     <div [ngClass]="{'navbar-mobile__routes_invisible': !showNavbar, 'navbar-mobile__routes_visible': showNavbar}">
         <div class="navbar-mobile__logo_txt">
-            <span>Fenpeichi</span> <span (click)="showHideNavbar()" style="width: auto;"> X </span>
+            <span (click)="goToWelcome()">Fenpeichi</span> <span (click)="showHideNavbar()" style="width: auto;"> X </span>
         </div>
         <div (click)="goToMain()" [ngClass]="{'pageOn': page == 'main'}" class="navbar-mobile__nav_buttom">
             <img class="navbar__local_img" src="../../assets/icons/local.svg" alt="Fenpeichi logo">
@@ -15,7 +15,7 @@
         <div class="navbar-mobile__nav_buttom">
             <img class="navbar__local_img" src="../../assets/icons/userlogo.svg" alt="Fenpeichi logo">
             <span style="color: #72767C;">Usuários</span>
-            <img class="navbar__lock_img" src="assets/icons/lock.svg" alt="loked path">
+            <img class="navbar__lock_img" src="../../assets/icons/lock.svg" alt="loked path">
 
         </div>
         <div class="navbar-mobile__nav_buttom">
