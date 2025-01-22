@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IMqttMessage } from 'ngx-mqtt';
 import { Subscription } from 'rxjs';
+import { Dispenser } from 'src/app/utils/interfaces/dispenser.model';
+import { DispenserService } from 'src/app/utils/services/dispenser.service';
 import { MqttRequest } from 'src/app/utils/services/mqtt-request.component';
 import { AuthService } from 'src/app/welcome/login/auth.service';
 
@@ -19,22 +21,22 @@ export class LocalComponent implements OnInit {
   topics = ['/1_Andar/Administracao', '/1_Andar/Centro_Cirurgico', '/1_Andar/Pediatria', '/Terreo/Enfermaria', '/Terreo/UTI'];
   local = '';
   topic = '';
-  dispensers: any[] = [];
+  dispensers: Dispenser[] = [];
   signals = [];
 
   subscription: Subscription;
 
-  constructor(private authService: AuthService, private router: Router, private eventMqtt: MqttRequest) { }
+  constructor(private authService: AuthService, private router: Router, private eventMqtt: MqttRequest, private dispenserService: DispenserService) { }
 
   ngOnInit(): void {
     this.authService.hideBar(false);
     this.chooseTopic(this.router.url.slice(-1))
-    this.subscribeToTopic();
     this.chooseLocal(this.router.url.slice(-1));
+    this.subscribeToTopic();
   }
 
-   private delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
+  private delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   goToMain(): void {
@@ -47,11 +49,11 @@ export class LocalComponent implements OnInit {
 
   modalToInvisible() {
     if (this.modalVisible == true) {
-      this.modalVisible = false;      
+      this.modalVisible = false;
     }
   }
 
-  chooseLocal(local: string): void {    
+  chooseLocal(local: string): void {
     this.local = this.locais[parseInt(local) - 1];
   }
 
@@ -61,42 +63,33 @@ export class LocalComponent implements OnInit {
 
   ngOnDestroy(): void {
     if (this.subscription) {
-        this.subscription.unsubscribe();
+      this.subscription.unsubscribe();
     }
   }
 
-  private subscribeToTopic() {    
-      this.subscription = this.eventMqtt.topic(this.topic)
-          .subscribe((data: IMqttMessage) => {
+  private subscribeToTopic() {
+    switch (this.local) {
+      case 'Administração':
+        this.dispensers = this.dispenserService.getDispensersAdm();
+        break;
+      case 'Centro Cirúrgico':
+        this.dispensers = this.dispenserService.getDispensersCentroCirugico();
+        break;
 
-              let local =  data.topic;
-              console.log(local);
-              
+      case 'Pediatria':
+        this.dispensers = this.dispenserService.getDispensersPediatria();
+        break;
 
-              if (this.locais.indexOf(local) == -1) {
-                //this.locais.push(local);
-              }
+      case 'Enfermaria':
+        this.dispensers = this.dispenserService.getDispensersEnfermaria();
+        break;
 
-              let item = JSON.parse(data.payload.toString());
+      case 'UTI':
+        this.dispensers = this.dispenserService.getDispensersUTI();
+        break;
 
-              let found = this.dispensers.some(el => el.id === item.id);
-
-              if (item.fluidLevel > 70) {
-                item.color = 'green';
-              } else if (item.fluidLevel < 70 && item.fluidLevel > 40) {
-                item.color = 'yellow';
-              } else {
-                item.color = 'red';
-              }
-
-              if (found) {
-                let index = this.dispensers.findIndex(el => el.id === item.id);
-                this.dispensers[index] = item;  
-              }
-              else {
-                this.dispensers.push(item);
-                this.signals.push(false);
-              }            
-          });
+      default:
+        break;
+    }
   }
 }        

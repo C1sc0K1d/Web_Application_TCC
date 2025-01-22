@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Locals } from '../utils/interfaces/locals';
 import { MqttRequest } from '../utils/services/mqtt-request.component';
 import { AuthService } from '../welcome/login/auth.service';
+import { DispenserService } from '../utils/services/dispenser.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,7 +31,7 @@ export class DashboardComponent implements OnInit {
   oct_value = '';
   @HostBinding("style.--monthsGraf10") monthsGraf10 = '10%';
 
-  constructor(private authService: AuthService, private eventMqtt: MqttRequest) { }
+  constructor(private authService: AuthService, private eventMqtt: MqttRequest, private dispenserService: DispenserService) { }
 
   ngOnInit() {
     this.authService.hideBar(false);
@@ -48,16 +49,9 @@ export class DashboardComponent implements OnInit {
   }
 
   private subscribeToTopic() {
-    this.subscription = this.eventMqtt.topic('')
-        .subscribe((data: IMqttMessage) => {
-
-            let local =  data.topic.split("/")[2];
-
-            let item = JSON.parse(data.payload.toString());
-
+    
+    this.dispenserService.getDispensersAll().forEach(item => {
             let found = this.dispensers.some(el => el.id === item.id);
-
-            item.local = local;
 
             if (found) {
               let index = this.dispensers.findIndex(el => el.id === item.id);
@@ -117,10 +111,16 @@ export class DashboardComponent implements OnInit {
 
                 console.log(this.oct_value);
                 
-                this.monthsGraf10 = `${(this.usedTotal)/5}%`;
+                if((this.usedTotal)/5 > 100) {
+                  this.monthsGraf10 = "100%"
+                }  else {
+                  this.monthsGraf10 = `${(this.usedTotal)/5}%`;
+                }
               }
             });         
-        });
+    });
+
+            
   }
 
 }

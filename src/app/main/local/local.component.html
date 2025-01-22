@@ -19,7 +19,7 @@
                 </div>
                 <div [ngClass]="{'local__card_footer_signal_invisible': !signals[i]}" class="local__card_footer_foot_open">
                     <br>
-                    <span><b>Instalação</b><br>13/08/2022</span>
+                    <span><b>Instalação</b><br>{{ dispenser.installation }}</span>
                     <br>
                     <span><b>Uso total</b><br>{{ dispenser.usedCount }}</span>
                     <br>

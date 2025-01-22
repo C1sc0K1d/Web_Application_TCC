@@ -2,29 +2,29 @@
     <img [ngClass]="{'navbar-mobile__image_invisible': !showNavbar, 'navbar-mobile__image_visible': showNavbar}" src="assets/icons/cardapio.png" alt="mobile navbar" (click)="showHideNavbar()">
     <div [ngClass]="{'navbar-mobile__routes_invisible': !showNavbar, 'navbar-mobile__routes_visible': showNavbar}">
         <div class="navbar-mobile__logo_txt">
-            <span>Dabliuci</span> <span (click)="showHideNavbar()" style="width: auto;"> X </span>
+            <span>Fenpeichi</span> <span (click)="showHideNavbar()" style="width: auto;"> X </span>
         </div>
         <div (click)="goToMain()" [ngClass]="{'pageOn': page == 'main'}" class="navbar-mobile__nav_buttom">
-            <img class="navbar__local_img" src="assets/icons/local.svg" alt="Dabliuci logo">
+            <img class="navbar__local_img" src="assets/icons/local.svg" alt="Fenpeichi logo">
             <span>Locais</span>
         </div>
         <div (click)="goToDashboard()" [ngClass]="{'pageOn': page == 'dashboard'}" class="navbar-mobile__nav_buttom">
-            <img class="navbar__cifra_img" src="assets/icons/cifra.svg" alt="Dabliuci logo">
+            <img class="navbar__cifra_img" src="assets/icons/cifra.svg" alt="Fenpeichi logo">
             <span>Dashboard</span>
         </div>
         <div class="navbar-mobile__nav_buttom">
-            <img class="navbar__local_img" src="assets/icons/userlogo.svg" alt="Dabliuci logo">
+            <img class="navbar__local_img" src="assets/icons/userlogo.svg" alt="Fenpeichi logo">
             <span style="color: #72767C;">Usuários</span>
             <img class="navbar__lock_img" src="assets/icons/lock.svg" alt="loked path">
 
         </div>
         <div class="navbar-mobile__nav_buttom">
-            <img class="navbar__bag_img" src="assets/icons/bag.svg" alt="Dabliuci logo">
+            <img class="navbar__bag_img" src="assets/icons/bag.svg" alt="Fenpeichi logo">
             <span style="color: #72767C;">Expansões</span>
             <img class="navbar__lock_img" src="assets/icons/lock.svg" alt="loked path">
         </div>
         <div class="navbar-mobile__nav_buttom">
-            <img class="navbar__gear_img" src="assets/icons/gear.svg" alt="Dabliuci logo">
+            <img class="navbar__gear_img" src="assets/icons/gear.svg" alt="Fenpeichi logo">
             <span>Configurações</span>
         </div>
     </div>
